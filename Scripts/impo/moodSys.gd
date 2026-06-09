@@ -43,23 +43,24 @@ var heads = {
 }
 
 func _ready() -> void:
+	#initializeloops and signals
 	checkmood()
 	blinkLoop()
 	moodLoop()
 	GlobalVariable.raisemood.connect(add)
 	GlobalVariable.feed.connect(feed)
 	
-
+#switches the eye to s specific frame
 func switchEye(frame: int) -> void:
 	currEye = frame
 	if eyeNode:
 		eyeNode.frame = frame
-
+#same thing but for mouths
 func switchMouth(frame: int) -> void:
 	currMouth = frame
 	if mouthNode:
 		mouthNode.frame = frame
-
+#changes the eye to the closed version of whaever the current expression is
 func blink() -> void:
 	var expression := currExpression
 	switchEye(
@@ -72,14 +73,14 @@ func blink() -> void:
 
 	if eyes.has(currExpression):
 		switchEye(eyes[currExpression]["open"])
-
+#creates a loop for blinking
 func blinkLoop() -> void:
-	while is_inside_tree():
+	while true:
 		await get_tree().create_timer(
 			randf_range(2.0, 4.0)
 		).timeout
 		blink()
-
+#flips mouths when dialogue is being played
 func talk() -> void:
 	while istalking:
 		if heads.has(currExpression):
@@ -93,27 +94,35 @@ func talk() -> void:
 		await get_tree().create_timer(
 			randf_range(0.05, 0.12)).timeout
 
+
+#make sure things are updated
+
 func _sync_mood() -> void:
-	gbData.data.save.mood = mood
+	#gbData.data.save.mood = mood
 	minmood = gbData.settings["minMood"]
 	maxmood = gbData.settings["maxMood"]
 	gbData.savetodisk("user://SAVE.json", gbData.data)
 
+
+#main mood loop
 func moodLoop() -> void:
 	while true:
 		await get_tree().create_timer(3).timeout
 
 		var normalize = mood / 250.0
+
+		#clamp the tickrate to 5
 		tick = clamp(tick, -5.0, 5.0)
 		funstuff = false
 
 
 		#test.emit()
 
-		
+		#clamp to min and maxmood
 		mood = clamp(lerp(mood, 0.0, 0.01) + tick, minmood, maxmood)
+		#showly neutralize in lerp but im going to be honesst they basically do nothing
 		tick = lerp(tick, 0.0, 0.01)
-
+		#round
 		mood = snappedf(mood, 0.01)
 
 		_sync_mood()
@@ -127,7 +136,7 @@ func moodLoop() -> void:
 func checkmood() -> void:
 	if funstuff or shocked:
 		return
-
+	#change expressions based on  mood
 	if mood > 70:
 		currExpression = "reallyHappy"
 	elif mood >= -30:
@@ -174,7 +183,7 @@ func shockedEye():
 func firstone():
 	pass
 
-
+#decrease mood tickrate when hungry
 func _on_other_hunger(hungry: int) -> void:
 	if hungry < 60 and hungry >= 30:
 		tick -= .5
@@ -186,5 +195,5 @@ func add(moodAmount: int):
 	mood += moodAmount
 	if gbData.devMode:
 		print("added")
-func feed(opsdfosdfgopkdfg: int):
+func feed(_forgot: int):
 	tick += .3

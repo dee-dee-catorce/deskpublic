@@ -40,17 +40,13 @@ var idleTimer: float = 0.0
 @export var randomWalkRange: float = 200.0
 
 """
-alot of the code in this script was like taken from other projects random forums and people on discord and poorly glued together here
+this script is old compared to the rest of the project
 
-this was made like a while ago and ill be 100% honest some of the snippets here were ripped straight from googles ai
+and ill be honest, i had copilot write some of the stuff here because i couldnt figure it out myself at the time
 
-that was a very horrible mistake on my end this script is a complete mess and half of this stuff doesnt work properly
+looking back that was a horrible mistake as this script is shit. copilot has been disabled for a while as of the time im writing this
 
-physmanager was my initial attempt at recoding this and it didnt work at all so im temporarily going back to this
-
-this script will be replaced 
-
-
+a replacement is in the works 
 """
 func _ready():
 	# pair all the bones to their rigidbodies
@@ -76,12 +72,15 @@ func _ready():
 	#back bone needs to be stiff or it looks weird
 	boneStiffness["Back"] = 1
 	animPlayer.play("idle")
-
+	rtEnable(true)
 
 func _physics_process(delta):
 	stateUpd()
 	physState(delta)
+	updateInterest()
 
+	if not isKnockedOut:
+		updateRandomWalk(delta)
 
 	rootBody.linear_velocity = rootBody.linear_velocity.limit_length(500)
 
@@ -151,7 +150,7 @@ func physState(delta: float):
 		#this doesnt work. i took this as a placeholder  until i could get something better going
 		#i never got rid of it and it doesnt work
 		#well it works but its weird and i dont like it
-		#if someone can  replace this thatd be
+		#if someone can  replace this thatd be cool
 		skeletonRef.global_position = rootBody.global_position
 	
 		for boneNode in boneBodies:
@@ -213,4 +212,126 @@ func getupF(time):
 	getup = true
 
 
+func updateInterest():
+	if headIK == null or isKnockedOut:
+		return
 
+	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_dir = mouse_pos - $Ragdoll/GBHB/LowerTorso.global_position
+	var top_body = get_top_interest()
+
+	if top_body != null and top_body:
+		var target = top_body.global_position
+
+		#_flip(target.x > tR.global_position.x)
+		headIK.global_position = lerp(headIK.global_position, target, 0.2)
+
+	elif mouse_dir.length() <= mouseDectDistance:
+		#no idea that you could just put math here and it will return as true or false
+		#thansk tiktok for telling me
+		#_flip(mouse_dir.x > 0)
+		headIK.global_position = lerp(headIK.global_position, mouse_pos, 0.2)
+		if gbData.data.save.interactions == false:
+			fistint.emit()
+			mouseinrange = true
+			gbData.data.save.interactions = true
+	else:
+		mouseinrange = false
+		headIK.position = lerp(headIK.position, def, 0.2)
+
+func get_top_interest() -> RigidBody2D:
+	var top: RigidBody2D = null
+	var topVal = 0
+
+	for body in itemsOfInterest:
+		var val = interestValues.get(body, 0)
+
+		if val > topVal:
+			topVal = val
+			top = body
+
+	# Default to mouse if the best target is too weak.
+	if topVal < 4:
+		return null
+	if topVal < 7:
+		interest.emit(topVal)
+
+	return top
+
+func stopMovement():
+	rootBody.linear_velocity.x = move_toward(rootBody.linear_velocity.x, 0, 50)
+
+func moveToX(x: float, force: float = 300.0):
+	if abs(rootBody.global_position.x - x) <= 50:
+		stopMovement()
+		return
+
+	var dir = sign(x - rootBody.global_position.x)
+	rootBody.linear_velocity.x = move_toward(rootBody.linear_velocity.x, dir * force, force)
+
+func updateRandomWalk(delta: float):
+	if isKnockedOut:
+		idleTimer = 0.0
+		randomwalking = false
+		return
+
+	if randomwalking:
+		moveToX(randomWalkTarget, 150)
+
+		if abs(rootBody.global_position.x - randomWalkTarget) <= 50:
+			randomwalking = false
+			idleTimer = 0.0
+	else:
+		idleTimer += delta
+
+		if idleTimer >= idleWaitTime:
+			randomWalkTarget = rootBody.global_position.x + randf_range(-randomWalkRange, randomWalkRange)
+			randomwalking = true
+
+func _on_rapier_area_2d_body_entered(body: Node2D) -> void:
+	if body.get_parent() == rootBody:
+		return
+
+	if not body is RigidBody2D:
+		return
+
+	var props = body.get_node_or_null("properties")
+
+	if props == null:
+		return
+
+	var interestVal = props.get("interest")
+	var carryable = props.get("carryable")
+
+	if interestVal == null:
+		return
+
+	itemsOfInterest.append(body)
+	interestValues[body] = interestVal
+
+func _on_rapier_area_2d_body_exited(body: Node2D) -> void:
+	if body is not RigidBody2D:
+		return
+
+	itemsOfInterest.erase(body)
+	interestValues.erase(body)
+
+
+func _on_interest() -> void:
+	pass # Replace with function body.
+
+
+func rtEnable(val: bool):
+	var descendants = skeletonRef.find_children("*", "", true, false)
+
+	for child in descendants:
+		if child is RemoteTransform2D:
+			var rtt: RemoteTransform2D = child
+
+			#i forgot nvm i rememebr THIS was supposed to be for the dialogue before i changed how it works
+			if child.name == "12":
+				return
+
+			rtt.update_position = not val
+			rtt.update_rotation = not val
+			rtt.update_scale = not val
