@@ -28,7 +28,7 @@ signal test()
 #these numbers represent what frame the eye or mouth should be for each expression
 var eyes = {
 	"shocked": {"open": 8, "closed": 1},
-	"shockedandbitchingaboutit": {"open": 0, "closed": 1},
+	"shockedcrying": {"open": 0, "closed": 1},
 	"default": {"open": 2, "closed": 3},
 	"reallyHappy": {"open": 4, "closed": 4},
 	"crying": {"open": 5, "closed": 7},
@@ -36,7 +36,7 @@ var eyes = {
 }
 var heads = {
 	"shocked": {"closed": 0, "open": 1},
-	"shockedandbitchingaboutit": {"closed": 0, "open": 1},
+	"shockedcrying": {"closed": 0, "open": 1},
 	"default": {"closed": 2, "open": 3, "alt": 6},
 	"reallyHappy": {"closed": 4, "open": 5},
 	"crying": {"closed": 2, "open": 3}
@@ -173,7 +173,7 @@ func shockedEye():
 		if mood >= -30:
 			currExpression = "shocked"
 		elif mood >= -70:
-			currExpression = "shockedandbitchingaboutit"
+			currExpression = "shockedcrying"
 		switchMouth(heads[currExpression]["open"])
 		switchEye(eyes[currExpression]["open"])
 		await get_tree().create_timer(.3).timeout
