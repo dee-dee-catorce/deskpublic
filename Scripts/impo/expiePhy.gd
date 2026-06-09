@@ -113,7 +113,7 @@ func setState(newState: States):
 	currentState = newState
 	if dead:
 		currentState = States.KNOCKEDOUT
-	#print("state changed to: ", currentState)
+
 
 	if currentState == States.KNOCKEDOUT:
 		blendValue = 0.0
@@ -126,14 +126,12 @@ func setState(newState: States):
 		animPlayer.play("Walk")
 		isWalking = true
 		isKnockedOut = false
-		#$Ragdoll/GBHB/Head/Difffuse.frame = 1
 
 	elif currentState == States.IDLE:
 		blendValue = 0.99
 		animPlayer.play("idle")
 		isWalking = false
 		isKnockedOut = false
-		#$Ragdoll/GBHB/Head/Difffuse.frame = 1
 
 # recycled from my old game nuke train lmao
 func physState(delta: float):
@@ -179,7 +177,6 @@ func physState(delta: float):
 func pair(boneName: String, body: RigidBody2D):
 	var boneNode = skeletonRef.find_child(boneName, true, false) as Bone2D
 
-	# if it cant find the bone just skip it i guess
 	if boneNode == null:
 		return
 
@@ -199,11 +196,11 @@ func getTotal(bone: Bone2D) -> Transform2D:
 func driveBodyToTransform(body: RigidBody2D, target, delta: float):
 	# move body toward target
 	var posError: Vector2 = target.origin - body.global_position
-	body.linear_velocity = posError / delta * 0.8
+	body.linear_velocity = posError / delta
 
 	# rotate body toward target
 	var angleError: float = angle_difference(body.global_rotation, target.get_rotation())
-	body.angular_velocity = angleError / delta * 0.8
+	body.angular_velocity = angleError / delta
 
 
 func getupF(time):
@@ -223,13 +220,11 @@ func updateInterest():
 	if top_body != null and top_body:
 		var target = top_body.global_position
 
-		#_flip(target.x > tR.global_position.x)
 		headIK.global_position = lerp(headIK.global_position, target, 0.2)
 
 	elif mouse_dir.length() <= mouseDectDistance:
 		#no idea that you could just put math here and it will return as true or false
 		#thansk tiktok for telling me
-		#_flip(mouse_dir.x > 0)
 		headIK.global_position = lerp(headIK.global_position, mouse_pos, 0.2)
 		if gbData.data.save.interactions == false:
 			fistint.emit()
@@ -250,7 +245,7 @@ func get_top_interest() -> RigidBody2D:
 			topVal = val
 			top = body
 
-	# Default to mouse if the best target is too weak.
+	# Default to mouse if the best target is too weak. 
 	if topVal < 4:
 		return null
 	if topVal < 7:
@@ -259,7 +254,7 @@ func get_top_interest() -> RigidBody2D:
 	return top
 
 func stopMovement():
-	rootBody.linear_velocity.x = move_toward(rootBody.linear_velocity.x, 0, 50)
+	rootBody.linear_velocity.x = 0
 
 func moveToX(x: float, force: float = 300.0):
 	if abs(rootBody.global_position.x - x) <= 50:
