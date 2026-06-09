@@ -1,6 +1,6 @@
 extends Node
 
-
+# thank you randoms on discord
 @onready
 
 var settings = gbData.settings
@@ -19,7 +19,8 @@ var sMAP = {
 
 func _ready() -> void:
 	if gbData.devMode:
-		print("Settings ", settings)
+		#print("Settings ", settings)
+		pass
 	_initset()
 
 
@@ -51,7 +52,6 @@ func _initset() -> void:
 func findSettingN(node_name: String) -> Node:
 	for child in $ItemList.get_children():
 		if child.name == node_name:
-			
 			return child
 	return null
 

@@ -1,7 +1,4 @@
 """
-fuck this script
-
-
-
+its gone 
 
 """

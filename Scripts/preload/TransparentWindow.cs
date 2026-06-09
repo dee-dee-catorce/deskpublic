@@ -40,7 +40,7 @@ public partial class TransparentWindow : Node { // Autoloaded
         {
             // We set the window as layered and click-through
             SetWindowLong(_hWnd, GwlExStyle, WsExLayered | WsExTransparent);
-
+            
             Engine.MaxFps  = 30;
         }
         else
