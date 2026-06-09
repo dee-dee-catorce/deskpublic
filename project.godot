@@ -1,0 +1,68 @@
+config_version=5
+
+[application]
+
+config/name="deskthing"
+run/main_scene="uid://lixpyau0oh5k"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="deedee14/expet"
+config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+run/low_processor_mode=true
+config/icon="uid://dt85xunyle8kl"
+
+[autoload]
+
+gbData="*uid://cxvm0bn8psfuw"
+Console="*uid://dc5wc5117h2vk"
+TransparentWindow="*uid://k5nqeptmbi8r"
+GlobalVariable="*uid://mxghgdpm2n4c"
+
+[display]
+
+window/size/mode=3
+window/size/initial_position_type=0
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/size/sharp_corners=true
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="StartingOver"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-console/plugin.cfg", "res://addons/ropesim/plugin.cfg")
+
+[input]
+
+click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+ctrl={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":1,"echo":false,"script":null)
+]
+}
+shift={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[physics]
+
+2d/run_on_separate_thread=true
+2d/physics_engine="Rapier2D"
+3d/physics_engine="Jolt Physics"
+2d/time_before_sleep=0.31
+2d/solver/solver_iterations=10
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

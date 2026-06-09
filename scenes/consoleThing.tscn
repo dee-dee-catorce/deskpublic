@@ -1,0 +1,321 @@
+[gd_scene format=3 uid="uid://b5w1ad1cltbtw"]
+
+[ext_resource type="Script" uid="uid://di62pelsumou7" path="res://Scripts/nimpo/windowHandler.gd" id="1_635sk"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://assets/themes/MinimalUI.tres" id="1_gicfb"]
+[ext_resource type="Script" uid="uid://d0cvk81o5qbon" path="res://Scripts/impo/commands.gd" id="1_spxfo"]
+[ext_resource type="Script" uid="uid://p4inwor7gtoo" path="res://addons/godot-console/scripts/console_container.gd" id="2_635sk"]
+[ext_resource type="Script" uid="uid://buv1161su40c1" path="res://Scripts/impo/settings.gd" id="5_uf3cf"]
+[ext_resource type="Texture2D" uid="uid://yuq6rb2r6wpm" path="res://assets/svg/x-symbol.svg" id="6_7udsa"]
+[ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="7_7udsa"]
+
+[node name="Control" type="Control" unique_id=2061047100 node_paths=PackedStringArray("Handle", "Minimize", "Exit", "ConsoleN", "SettingsN")]
+layout_mode = 3
+anchor_top = 0.0015432099
+anchor_right = 0.4861111
+anchor_bottom = 0.25
+size_flags_horizontal = 6
+mouse_filter = 2
+script = ExtResource("1_635sk")
+Handle = NodePath("Handle")
+Minimize = NodePath("Handle/Minimize")
+Exit = NodePath("Handle/Close")
+ConsoleN = NodePath("Main/ConsoleContainer")
+SettingsN = NodePath("Main/Settings")
+metadata/_edit_use_anchors_ = true
+
+[node name="Handle" type="Button" parent="." unique_id=473127369]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0017857143
+anchor_top = -0.1863354
+anchor_right = 1.0017858
+anchor_bottom = 0.0062111802
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gicfb")
+alignment = 0
+
+[node name="Close" type="Button" parent="Handle" unique_id=1025226998]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92704624
+anchor_top = 0.06451613
+anchor_right = 0.97686833
+anchor_bottom = 0.935484
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gicfb")
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="Minimize" type="Button" parent="Handle" unique_id=1942123215]
+visible = false
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87366545
+anchor_top = 0.06451613
+anchor_right = 0.92348754
+anchor_bottom = 0.935484
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gicfb")
+text = "-"
+metadata/_edit_use_anchors_ = true
+
+[node name="TabSwitch" type="OptionButton" parent="Handle" unique_id=149604070]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026690392
+anchor_top = 0.09677419
+anchor_right = 0.2758007
+anchor_bottom = 0.9032258
+theme = ExtResource("1_gicfb")
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Statistics"
+popup/item_0/id = 0
+popup/item_1/text = "Console"
+popup/item_1/id = 1
+popup/item_2/text = "Settings"
+popup/item_2/id = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="ColorRect" parent="." unique_id=1524626669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_gicfb")
+color = Color(0, 0, 0, 0.5372549)
+
+[node name="ConsoleContainer" type="VBoxContainer" parent="Main" unique_id=1769789166]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_gicfb")
+alignment = 1
+script = ExtResource("2_635sk")
+metadata/_custom_type_script = "uid://p4inwor7gtoo"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Main/ConsoleContainer" unique_id=2085935150]
+modulate = Color(1, 1, 1, 0.21568628)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Commands" type="Node" parent="Main/ConsoleContainer" unique_id=43375570 node_paths=PackedStringArray("root")]
+script = ExtResource("1_spxfo")
+root = NodePath("../../..")
+
+[node name="Settings" type="Container" parent="Main" unique_id=1394294527]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0125
+anchor_top = 0.08074534
+anchor_right = 0.9625
+anchor_bottom = 1.0557454
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_uf3cf")
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemList" type="VBoxContainer" parent="Main/Settings" unique_id=726029026]
+layout_mode = 2
+
+[node name="deathBool" type="Button" parent="Main/Settings/ItemList" unique_id=1748848974]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gicfb")
+toggle_mode = true
+icon = ExtResource("6_7udsa")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+metadata/type = "bool"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/deathBool" unique_id=1562381313]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = -3.66
+anchor_right = 10.28
+anchor_bottom = -3.66
+offset_left = 526.1
+offset_top = 187.975
+offset_right = 20.0
+offset_bottom = 227.975
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enable death"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/Settings/ItemList/deathBool" unique_id=1727237654]
+layout_mode = 0
+offset_left = 187.0
+offset_top = -7.0
+offset_right = 515.0
+offset_bottom = 62.0
+text = "hey quick note literally none of these have limits. im too focused on getting this out 
+to add them at the moment.  good luck "
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="openAlert" type="Button" parent="Main/Settings/ItemList" unique_id=180859308]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gicfb")
+toggle_mode = true
+icon = ExtResource("6_7udsa")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+metadata/type = "bool"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/openAlert" unique_id=1809018078]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = -3.66
+anchor_right = 10.28
+anchor_bottom = -3.66
+offset_left = 526.1
+offset_top = 187.975
+offset_right = 20.0
+offset_bottom = 227.975
+grow_horizontal = 2
+grow_vertical = 2
+text = "Toggles disclaimer at the start"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="expieFontSize" type="LineEdit" parent="Main/Settings/ItemList" unique_id=390047042]
+layout_mode = 2
+placeholder_text = "10"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/expieFontSize" unique_id=1670461292]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = 0.5
+anchor_right = 10.28
+anchor_bottom = 0.5
+offset_left = 526.1
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dialogue Font Size"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hungerRate" type="LineEdit" parent="Main/Settings/ItemList" unique_id=1340945447]
+layout_mode = 2
+placeholder_text = "10"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/hungerRate" unique_id=347915579]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = 0.5
+anchor_right = 10.28
+anchor_bottom = 0.5
+offset_left = 526.1
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hunger decay (i highly recommend keeping this between .1- 1)"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="minMood" type="LineEdit" parent="Main/Settings/ItemList" unique_id=569389834]
+layout_mode = 2
+placeholder_text = "10"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/minMood" unique_id=501940725]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = 0.5
+anchor_right = 10.28
+anchor_bottom = 0.5
+offset_left = 526.1
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The lowest the expies mood can go"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="maxMood" type="LineEdit" parent="Main/Settings/ItemList" unique_id=374514981]
+layout_mode = 2
+placeholder_text = "10"
+
+[node name="name" type="RichTextLabel" parent="Main/Settings/ItemList/maxMood" unique_id=1644388755]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -9.382
+anchor_top = 0.5
+anchor_right = 10.28
+anchor_bottom = 0.5
+offset_left = 526.1
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The highest the expies mood can go"
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Main/Settings" unique_id=620316955]
+layout_mode = 2
+
+[node name="ClickArea" type="Control" parent="." unique_id=1277571415]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_7udsa")
+metadata/_custom_type_script = "uid://blg811jk2cjt4"
+
+[connection signal="button_down" from="Handle" to="." method="_downDrag"]
+[connection signal="button_up" from="Handle" to="." method="_upDrag"]
+[connection signal="pressed" from="Handle" to="." method="_drag"]
+[connection signal="pressed" from="Handle/Close" to="." method="_hide" binds= [true]]
+[connection signal="item_selected" from="Handle/TabSwitch" to="." method="_on_tab_switch_item_selected"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/expieFontSize" to="Main/Settings" method="_on_expie_font_size_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/hungerRate" to="Main/Settings" method="_on_expie_font_size_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/hungerRate" to="Main/Settings" method="_on_hunger_rate_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/minMood" to="Main/Settings" method="_on_expie_font_size_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/minMood" to="Main/Settings" method="_on_hunger_rate_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/maxMood" to="Main/Settings" method="_on_expie_font_size_text_submitted"]
+[connection signal="text_submitted" from="Main/Settings/ItemList/maxMood" to="Main/Settings" method="_on_hunger_rate_text_submitted"]

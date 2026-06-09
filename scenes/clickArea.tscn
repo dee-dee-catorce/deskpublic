@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://be8cgj0gw0xtx"]
+
+[ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="1_6n5cu"]
+
+[node name="clickArea" type="Control" unique_id=701597286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6n5cu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=32556575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

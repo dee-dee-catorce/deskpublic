@@ -1,0 +1,16 @@
+{
+	"save": {
+		"mood": 20.0,
+		"hunger": 80.0,
+		"health": 100.0,
+		"item": "",
+		"trust": 10.0,
+		"tired": 0.0,
+		"nickname": "",
+		"firstime": 0,
+		"interactions": false
+	},
+	"everPresentAcrossSaves": {
+		"PetsKilled": 0.0
+	}
+}

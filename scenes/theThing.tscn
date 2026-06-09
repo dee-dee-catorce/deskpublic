@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dw3ua14au5m83"]
+
+[ext_resource type="Theme" uid="uid://bl462l5byyohh" path="res://assets/themes/ConsoleTheme.tres" id="1_wjbx6"]
+[ext_resource type="Script" uid="uid://bu1nlyxwv0ll8" path="res://Scripts/nimpo/popupMenu.gd" id="1_yekbp"]
+[ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="2_aywyk"]
+
+[node name="Control" type="Control" unique_id=1446517993]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yekbp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=273800588]
+layout_mode = 0
+offset_right = 379.9726
+offset_bottom = 138.0
+color = Color(0, 0, 0, 0.42745098)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=2101210577]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="menu" type="Button" parent="ColorRect/HBoxContainer" unique_id=1383643184]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_wjbx6")
+theme_override_font_sizes/font_size = 14
+text = "open menu"
+clip_text = true
+
+[node name="pet" type="Button" parent="ColorRect/HBoxContainer" unique_id=1816015925]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_wjbx6")
+theme_override_font_sizes/font_size = 14
+text = "temporary
+pet"
+clip_text = true
+
+[node name="tempFeed" type="Button" parent="ColorRect/HBoxContainer" unique_id=1823029987]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_wjbx6")
+theme_override_font_sizes/font_size = 14
+text = "temporary
+feed button"
+clip_text = true
+
+[node name="TextEdit" type="TextEdit" parent="ColorRect/HBoxContainer" unique_id=1073561204]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("1_wjbx6")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "item
+ (doesnt 
+work yet)"
+
+[node name="Button" type="Button" parent="ColorRect/HBoxContainer" unique_id=746590826]
+layout_mode = 2
+text = "close"
+
+[node name="ClickArea" type="Control" parent="ColorRect" unique_id=653484295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.027405
+offset_right = 46.027405
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_aywyk")
+metadata/_custom_type_script = "uid://blg811jk2cjt4"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/pet" to="." method="_on_pet_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/tempFeed" to="." method="_on_temp_feed_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Button" to="." method="_on_button_pressed"]

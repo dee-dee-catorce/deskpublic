@@ -1,0 +1,73 @@
+{
+	"diaGlobal": {
+		"Test": [
+			"Test Dialogue"
+		],
+		"HappyPassive": [
+			":3"
+		],
+		"Ragdolled1": [
+			"Woah!",
+			"Ouch!",
+			"Hey!",
+			"Agh!"
+		],
+		"Ouchies": [
+			"[shake]Stop!",
+			"[shake]Stop it!",
+			"[shake]OW!"
+		],
+		"Interested": [
+			"?",
+			"..?"
+		],
+		"Hungry": [
+			"Hey, uhm. Got anything to eat?.",
+			"Im a bit hungry."
+		],
+		"VeryHungry": [
+			"Can you PLEASE get me something to eat?",
+			"I'm starving!",
+			"I need to eat!"
+		],
+		"FoodBad": [
+			"Ew!",
+			"Yuck!"
+		],
+		"FoodGood": [
+			"I like this.",
+			"Can you get more of this?"
+		],
+		"casLaunch": [
+			"Hey! That's one of us!",
+			"Wait, I think I recognize that one!"
+		],
+		"Pet": [
+			"T-That feels nice.",
+			"T-thanks!",
+			"This is nice.."
+		],
+		"PetRejection": [
+			"Hey, stop that!",
+			"Don't touch me!",
+			"Get away from me!"
+		],
+		"Intro": [
+			"Where am I?...",
+			"What kind of test is this?"
+		],
+		"FirstInteraction": [
+			"What the hell?!",
+			"What is that thing?!",
+			"Uhm, hello?"
+		]
+	},
+	"items": {
+		"Test Item": {
+			"description": "This is a test item."
+		},
+		"Crate": {
+			"description": "A standard crate that who's weight scales with size."
+		}
+	}
+}

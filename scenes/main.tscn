@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://lixpyau0oh5k"]
+
+[ext_resource type="Script" uid="uid://0kq78j6rijnm" path="res://Scripts/impo/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b5w1ad1cltbtw" path="res://scenes/consoleThing.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://yr17llxkxenm" path="res://Scripts/nimpo/boundrery.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cydyko0hjl4jh" path="res://scenes/objects/crate.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cjeonva1kb324" path="res://Scripts/nimpo/boundreryR.gd" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://dchcxybugr7wf" path="res://Scripts/nimpo/boundreryL.gd" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c7c1p606qfkbq" path="res://scenes/imgonnafreakout/expie.tscn" id="7_o6xl0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
+
+[node name="main" type="Node2D" unique_id=347643985 node_paths=PackedStringArray("console")]
+script = ExtResource("1_0wfyh")
+console = NodePath("ConsoleContainer")
+
+[node name="ConsoleContainer" parent="." unique_id=1769789166 instance=ExtResource("1_o5qli")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1662.0
+offset_top = 368.0
+offset_right = 2010.0
+offset_bottom = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=589717583]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("3_sugp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=632082976]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="SideR" type="StaticBody2D" parent="." unique_id=110073628]
+rotation = -1.5707964
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("4_tefeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideR" unique_id=2052374191]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="SideL" type="StaticBody2D" parent="." unique_id=1290053437]
+rotation = 1.5707964
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("5_o6xl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideL" unique_id=416155454]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="Char" parent="." unique_id=1929009500 instance=ExtResource("7_o6xl0")]
+position = Vector2(1297, 484)
+scale = Vector2(2, 2)
+
+[node name="Body" parent="." unique_id=371602465 instance=ExtResource("4_jyhfs")]
+position = Vector2(854, 355)

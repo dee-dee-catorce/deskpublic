@@ -1,0 +1,2 @@
+func _flip(_flip: bool):
+	testingsomethingrq.scale.x *= -1

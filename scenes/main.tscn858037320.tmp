@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://lixpyau0oh5k"]
+
+[ext_resource type="Script" uid="uid://0kq78j6rijnm" path="res://Scripts/impo/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b5w1ad1cltbtw" path="res://scenes/consoleThing.tscn" id="1_o5qli"]
+
+[node name="main" type="Node2D" unique_id=347643985]
+script = ExtResource("1_0wfyh")
+
+[node name="ConsoleContainer" parent="." unique_id=1769789166 instance=ExtResource("1_o5qli")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 426.0
+offset_top = 203.0
+offset_right = 774.0
+offset_bottom = 401.0
+grow_horizontal = 2
+grow_vertical = 2

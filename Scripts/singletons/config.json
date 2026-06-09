@@ -1,0 +1,13 @@
+{
+	"ConsoleSize": {
+		"x": 400.0,
+		"y": 300.0
+	},
+	"expieDialogueSize": 10.0,
+	"minMood": -100.0,
+	"maxMood": 100.0,
+	"hungerDecayRate": 0.1,
+	"deathEnabled": true,
+	"messageEnabled": true,
+	"placeHodler": true
+}

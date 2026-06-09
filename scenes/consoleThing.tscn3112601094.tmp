@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b5w1ad1cltbtw"]
+
+[ext_resource type="Script" uid="uid://dt725dpffgdyt" path="res://scenes/drag.gd" id="1_635sk"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://assets/themes/MinimalUI.tres" id="1_gicfb"]
+[ext_resource type="Script" uid="uid://d0cvk81o5qbon" path="res://Scripts/impo/commands.gd" id="1_spxfo"]
+[ext_resource type="Script" uid="uid://p4inwor7gtoo" path="res://addons/godot-console/scripts/console_container.gd" id="2_635sk"]
+
+[node name="Control" type="Control" unique_id=2061047100]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 560.0
+offset_bottom = 162.0
+size_flags_horizontal = 6
+script = ExtResource("1_635sk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1524626669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gicfb")
+color = Color(0, 0, 0, 0.5372549)
+
+[node name="ConsoleContainer" type="VBoxContainer" parent="ColorRect" unique_id=1769789166]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_gicfb")
+alignment = 1
+script = ExtResource("2_635sk")
+metadata/_custom_type_script = "uid://p4inwor7gtoo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Commands" type="Node" parent="ColorRect/ConsoleContainer" unique_id=43375570]
+script = ExtResource("1_spxfo")
+
+[node name="ColorRect2" type="Button" parent="." unique_id=473127369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -30.0
+offset_right = 1.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gicfb")
