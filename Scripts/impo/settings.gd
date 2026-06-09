@@ -13,7 +13,7 @@ var sMAP = {
 	"openAlert": {"key": "messageEnabled", "type": "toggle"},
 	"minMood": {"key": "minMood", "type": "text"},
 	"maxMood": {"key": "maxMood", "type": "text"},
-	# "mySlider":      { "key": "someVolume",          "type": "slider" },
+	# "s":      { "key": "someVolume",          "type": "slider" },
 }
 
 
@@ -51,6 +51,7 @@ func _initset() -> void:
 func findSettingN(node_name: String) -> Node:
 	for child in $ItemList.get_children():
 		if child.name == node_name:
+			
 			return child
 	return null
 

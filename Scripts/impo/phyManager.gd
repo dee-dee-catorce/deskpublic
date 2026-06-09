@@ -1,0 +1,7 @@
+"""
+fuck this script
+
+
+
+
+"""

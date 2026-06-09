@@ -2,6 +2,10 @@ extends Node
 class_name Select
 
 # the thing that lets you drag around the objects in the scene, and also handles the outline when hovering
+
+#i kinda just took a script from somewhere i think it was reddit and i swapped out the pinjoint witha  springjoin
+
+#that mightve been a mistake
 @export var outlineWidth: int
 @export var sprite: Sprite2D
 

@@ -1,3 +1,11 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
@@ -33,7 +41,7 @@ project/assembly_name="StartingOver"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-console/plugin.cfg", "res://addons/ropesim/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-console/plugin.cfg")
 
 [input]
 

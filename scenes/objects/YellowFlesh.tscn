@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cssci7xyy8e80"]
 
 [ext_resource type="Shader" uid="uid://b1x03c3wn85hg" path="res://assets/shaders/outline.gdshader" id="1_ga1xl"]
-[ext_resource type="Texture2D" uid="uid://cyn2ngm4f6gr0" path="res://assets/objectSpr/ph_Crate.png" id="2_fo52g"]
+[ext_resource type="Texture2D" uid="uid://cd6h06jn20bnl" path="res://assets/objectSpr/yellowFlesh.png" id="2_ga1xl"]
 [ext_resource type="Script" uid="uid://cbm2skouhq87k" path="res://Scripts/impo/dragObj.gd" id="3_t3tc2"]
 [ext_resource type="Script" uid="uid://byi06muelj7dr" path="res://Scripts/nimpo/properties.gd" id="4_tl633"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yourn"]
-size = Vector2(252, 254)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga1xl"]
+radius = 32.06244
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xu5n6"]
 shader = ExtResource("1_ga1xl")
@@ -20,6 +20,9 @@ shader_parameter/square_border = true
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/max_or_add = false
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo52g"]
+radius = 15.811388
+
 [node name="Body" type="RigidBody2D" unique_id=371602465]
 mass = 0.05
 
@@ -27,17 +30,14 @@ mass = 0.05
 scale = Vector2(0.5, 0.5)
 
 [node name="Yeah" type="CollisionShape2D" parent="Detector" unique_id=273356045]
-shape = SubResource("RectangleShape2D_yourn")
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_ga1xl")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=673930975]
+texture_filter = 1
 material = SubResource("ShaderMaterial_xu5n6")
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_fo52g")
-
-[node name="Collision" type="CollisionShape2D" parent="." unique_id=123731701]
-visible = false
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_yourn")
+scale = Vector2(1.078125, 1.078125)
+texture = ExtResource("2_ga1xl")
 
 [node name="draggable" type="Node" parent="." unique_id=786882799 node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_t3tc2")
@@ -46,3 +46,7 @@ metadata/_custom_type_script = "uid://cbm2skouhq87k"
 
 [node name="properties" type="Node" parent="." unique_id=399788717]
 script = ExtResource("4_tl633")
+
+[node name="Yeah" type="CollisionShape2D" parent="." unique_id=1639607262]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_fo52g")

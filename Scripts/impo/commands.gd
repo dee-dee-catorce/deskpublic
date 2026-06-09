@@ -31,8 +31,13 @@ func _setmood(val: float):
 	gbData.savetodisk("user://SAVE.json", gbData.data)
 	return val
 
-func killExpie():
-	return "Killed expie"
+func _additem():
+# add crate only for now
+	var scene = preload("res://scenes/objects/crate.tscn")
+	var instance = scene.instantiate()
+	get_tree().current_scene.add_child(instance)
+	instance.position = get_viewport().get_mouse_position()
+					
 
 func resize(nx, ny):
 	var ex = str(nx).to_float()
@@ -64,10 +69,11 @@ func deathLoop():
 func _ready():
 	Console.create_command("log", _log, "Log a string to the console.")
 	Console.create_command("resizeConsole", resize, "resize the console")
-	Console.create_command("killExpie", killExpie, "Yeha")
-	Console.create_command("setMood", _setmood, "Set the mood of the expie")
+	##Console.create_command("killExpie", killExpie, "Yeha")
+	Console.create_command("setMood", _setmood, "Set the mood of the expie i dont even think this works")
+	Console.create_command("spawn", _additem, "spawn shit")
 	#Console.create_command("deathLoop", deathLoop, "please dont crash")
-	
+	Console.execute("help")
 	#setting stuff that would probably have a better solution to it
 
 	applySettings()

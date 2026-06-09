@@ -28,7 +28,7 @@ Heres the steps that it does through:
 
 this shit sound like ai wrote it im sorry it sounds like that 
 
-
+looking back now that im publicizing this this probably isnt even right anymore
 """
 
 var data = {}
@@ -38,6 +38,9 @@ var settings = {}
 
 var template = "res://Scripts/singletons/SaveTemplate.json"
 
+
+
+# DO NOT FORGET TO DISABLE THIS WHENBUILDING 
 var devMode = true
 
 
@@ -103,7 +106,7 @@ func newConfig():
 	settings = loadjson(configFile).duplicate(true)
 	savetodisk(conPath, settings)
 # my favorite helpers!
-
+#theyre gone nvm
 func loadjson(filepath: String):
 	if FileAccess.file_exists(filepath):
 		var datafile = FileAccess.open(filepath, FileAccess.READ)

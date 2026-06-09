@@ -18,7 +18,7 @@ var def = Vector2(-104, -12)
 var itemsOfInterest: Array[RigidBody2D] = []
 var interestValues: Dictionary = {}
 var mouseinrange = false
-# states for the character idk what else to call it
+# states
 enum States {IDLE, KNOCKEDOUT, WALKING}
 
 var currentState: States = States.IDLE
@@ -138,7 +138,9 @@ func physState(delta: float):
 
 		# keep the torso from flying too far from root
 		if direction.length() > 300:
-			$Ragdoll/GBHB/LowerTorso.global_position = rootBody.global_position + direction.limit_length(300)
+			#$Ragdoll/GBHB/LowerTorso.global_position = rootBody.global_position + direction.limit_length(300)
+			#no that made it look weird
+			pass
 
 	elif currentState == States.WALKING or currentState == States.IDLE:
 		skeletonRef.global_position = rootBody.global_position
