@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cssci7xyy8e80"]
 
+[ext_resource type="Script" uid="uid://b8qvvbj0aogcf" path="res://scenes/objects/yellow_flesh.gd" id="1_fo52g"]
 [ext_resource type="Shader" uid="uid://b1x03c3wn85hg" path="res://assets/shaders/outline.gdshader" id="1_ga1xl"]
 [ext_resource type="Texture2D" uid="uid://cd6h06jn20bnl" path="res://assets/objectSpr/yellowFlesh.png" id="2_ga1xl"]
 [ext_resource type="Script" uid="uid://cbm2skouhq87k" path="res://Scripts/impo/dragObj.gd" id="3_t3tc2"]
@@ -25,6 +26,7 @@ radius = 15.811388
 
 [node name="Body" type="RigidBody2D" unique_id=371602465]
 mass = 0.05
+script = ExtResource("1_fo52g")
 
 [node name="Detector" type="Area2D" parent="." unique_id=1866926148]
 scale = Vector2(0.5, 0.5)
@@ -50,3 +52,5 @@ script = ExtResource("4_tl633")
 [node name="Yeah" type="CollisionShape2D" parent="." unique_id=1639607262]
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_fo52g")
+
+[connection signal="area_entered" from="Detector" to="." method="collide"]

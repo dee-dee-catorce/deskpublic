@@ -56,6 +56,8 @@ height = 29.994549
 [sub_resource type="CircleShape2D" id="CircleShape2D_b0jto"]
 radius = 10.05096
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_es5rn"]
+
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ml6h2"]
 target_nodepath = NodePath("IK/FootF Target")
 tip_nodepath = NodePath("Hip/LegF/RN/CalfF/Foot")
@@ -1433,8 +1435,8 @@ shape = SubResource("CapsuleShape2D_8yhbw")
 
 [node name="BUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=187194708]
 position = Vector2(7.051215, -14.663136)
-rotation = 0.44255462
-scale = Vector2(0.999979, 0.999979)
+rotation = 0.44255474
+scale = Vector2(0.9999791, 0.9999791)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1454,9 +1456,9 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1094801779]
-position = Vector2(-2.798639, 6.1213627)
-rotation = 0.48600456
-scale = Vector2(0.9999773, 0.9999773)
+position = Vector2(-2.7986412, 6.12136)
+rotation = 0.4860047
+scale = Vector2(0.99997747, 0.99997747)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1475,9 +1477,9 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=2023872310]
-position = Vector2(-12.657435, 26.924728)
-rotation = 0.48600456
-scale = Vector2(0.9999773, 0.9999773)
+position = Vector2(-12.657443, 26.924728)
+rotation = 0.4860047
+scale = Vector2(0.99997747, 0.99997747)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1733,6 +1735,14 @@ shape = SubResource("CircleShape2D_b0jto")
 remote_path = NodePath("../../../../textParent")
 update_rotation = false
 update_scale = false
+
+[node name="mouth" type="Area2D" parent="Ragdoll/GBHB/Head" unique_id=379024809]
+metadata/canEat = true
+
+[node name="mouth" type="CollisionShape2D" parent="Ragdoll/GBHB/Head/mouth" unique_id=816764746]
+position = Vector2(-12.192587, -6.7238207)
+shape = SubResource("CircleShape2D_es5rn")
+debug_color = Color(0.33107316, 0.6233756, 0, 0.41960785)
 
 [node name="Bones" type="Node2D" parent="Ragdoll/GBHB" unique_id=1979520797]
 visible = false
