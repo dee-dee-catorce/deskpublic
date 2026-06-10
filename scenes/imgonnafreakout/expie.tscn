@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://da7sjmfsmufll" path="res://Scripts/impo/dialogueManager.gd" id="15_1v1w3"]
 [ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="15_qcy87"]
 [ext_resource type="Script" uid="uid://bhc642h64r7ev" path="res://Scripts/impo/moodSys.gd" id="16_1v1w3"]
+[ext_resource type="Script" uid="uid://d32kwkwl0idty" path="res://scenes/imgonnafreakout/petarea.gd" id="20_1gvjr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcy87"]
 
@@ -57,6 +58,9 @@ height = 29.994549
 radius = 10.05096
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_es5rn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es5rn"]
+size = Vector2(33.387943, 22.151495)
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ml6h2"]
 target_nodepath = NodePath("IK/FootF Target")
@@ -1456,9 +1460,9 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1094801779]
-position = Vector2(-2.7986412, 6.12136)
-rotation = 0.4860047
-scale = Vector2(0.99997747, 0.99997747)
+position = Vector2(-2.7986422, 6.1213627)
+rotation = 0.4860046
+scale = Vector2(0.9999774, 0.9999774)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1477,9 +1481,9 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=2023872310]
-position = Vector2(-12.657443, 26.924728)
-rotation = 0.4860047
-scale = Vector2(0.99997747, 0.99997747)
+position = Vector2(-12.657442, 26.924732)
+rotation = 0.4860046
+scale = Vector2(0.9999774, 0.9999774)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1742,7 +1746,15 @@ metadata/canEat = true
 [node name="mouth" type="CollisionShape2D" parent="Ragdoll/GBHB/Head/mouth" unique_id=816764746]
 position = Vector2(-12.192587, -6.7238207)
 shape = SubResource("CircleShape2D_es5rn")
-debug_color = Color(0.33107316, 0.6233756, 0, 0.41960785)
+debug_color = Color(0.32941177, 0.62352943, 0, 0.41960785)
+
+[node name="pet" type="Area2D" parent="Ragdoll/GBHB/Head" unique_id=1010008939]
+script = ExtResource("20_1gvjr")
+
+[node name="pet" type="CollisionShape2D" parent="Ragdoll/GBHB/Head/pet" unique_id=1010420412]
+position = Vector2(-0.45311832, -12.857288)
+shape = SubResource("RectangleShape2D_es5rn")
+debug_color = Color(0.32941177, 0.62352943, 0, 0.41960785)
 
 [node name="Bones" type="Node2D" parent="Ragdoll/GBHB" unique_id=1979520797]
 visible = false
@@ -1953,6 +1965,7 @@ position = Vector2(-26.666668, -15.555556)
 position = Vector2(1, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB" unique_id=1020414931]
+visible = false
 position = Vector2(7.777778, 8.888889)
 shape = SubResource("CapsuleShape2D_aycd3")
 metadata/triggerLandmine = true
@@ -1962,6 +1975,7 @@ script = ExtResource("15_qcy87")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/RapierArea2D" unique_id=1307302158]
+visible = false
 position = Vector2(8.888889, 0)
 shape = SubResource("CircleShape2D_46rnx")
 
@@ -1971,6 +1985,7 @@ metadata/_custom_type_script = "uid://cburu6b4ckehs"
 metadata/triggerLandmine = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/RapierArea2D2" unique_id=352619361]
+visible = false
 position = Vector2(7.777778, 8.888889)
 shape = SubResource("CapsuleShape2D_es5rn")
 
@@ -1989,6 +2004,7 @@ libraries/ = SubResource("AnimationLibrary_hd0lk")
 [connection signal="test" from="mood" to="dialogue" method="_on_mood_test"]
 [connection signal="hunger" from="other" to="dialogue" method="_on_other_hunger"]
 [connection signal="hunger" from="other" to="mood" method="_on_other_hunger"]
+[connection signal="input_event" from="Ragdoll/GBHB/Head/pet" to="Ragdoll/GBHB/Head/pet" method="_on_input_event"]
 [connection signal="body_entered" from="Ragdoll/GBHB/RapierArea2D" to="." method="_on_rapier_area_2d_body_entered"]
 [connection signal="body_exited" from="Ragdoll/GBHB/RapierArea2D" to="." method="_on_rapier_area_2d_body_exited"]
 [connection signal="input_event" from="Ragdoll/GBHB/RapierArea2D" to="consoleinstancer" method="_on_rapier_area_2d_input_event"]

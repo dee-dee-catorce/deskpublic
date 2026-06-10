@@ -17,13 +17,13 @@ signal raisemood(t: int)
 signal feed(t: int)
 #signal bus shit this probably has like one thing in it
 func petf(t: bool):
-    pet.emit(t)
+	pet.emit(t)
 
 func consoleF(t: bool):
-    console.emit(t)
+	console.emit(t)
 
 func raisemoodF(t: int):
-    raisemood.emit(t)
+	raisemood.emit(t)
 
 func feedf(t: int):
-    feed.emit(t)
+	feed.emit(t)
