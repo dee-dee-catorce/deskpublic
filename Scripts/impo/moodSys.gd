@@ -30,6 +30,7 @@ var eyes = {
 	"shocked": {"open": 8, "closed": 1},
 	"shockedcrying": {"open": 0, "closed": 1},
 	"default": {"open": 2, "closed": 3},
+	"down": {"open": 2, "closed": 3},
 	"reallyHappy": {"open": 4, "closed": 4},
 	"crying": {"open": 5, "closed": 7},
 	"wideEyed": {"open": 6, "closed": 6}
@@ -38,6 +39,7 @@ var heads = {
 	"shocked": {"closed": 0, "open": 1},
 	"shockedcrying": {"closed": 0, "open": 1},
 	"default": {"closed": 2, "open": 3, "alt": 6},
+	"down": {"open": 3, "closed": 2},
 	"reallyHappy": {"closed": 4, "open": 5},
 	"crying": {"closed": 2, "open": 3}
 }
@@ -137,11 +139,13 @@ func checkmood() -> void:
 	if funstuff or shocked:
 		return
 	#change expressions based on  mood
-	if mood > 70:
+	if mood > 50:
 		currExpression = "reallyHappy"
-	elif mood >= -30:
+	elif mood >= 0:
 		currExpression = "default"
-	elif mood >= -70:
+	elif mood >= -25:
+		currExpression = "down"
+	elif mood >= -50:
 		currExpression = "crying"
 
 	if heads.has(currExpression):

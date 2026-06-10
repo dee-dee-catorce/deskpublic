@@ -1,16 +1,37 @@
 {
 	"diaGlobal": {
 		"Test": [
-			"Test Dialogue"
+			"this is all placeholder dialogue im using the one being made by @eeeeeeeeeee_93745 in the final one"
 		],
 		"HappyPassive": [
-			":3"
+			"[wave]:3",
+			"[wave]I like this!",
+			"[wave]I'm enjoying myself...",
+			"[wave]I enjoy your company."
+		],
+		"MidPassive": [
+			"This isn't horrible...",
+			"Better here than there...",
+			"I honestly dont mind this but things could be better."
+		],
+		"LowPassive": [
+			"3;",
+			"This sucks...",
+			"When will this test end?...",
+			"I want friends back..."
+		],
+		"VeryLowPassive": [
+			"[shake]I want to go home...",
+			"[shake]I- I hate this!...",
+			"[shake]Please!",
+			"[shake]I want to leave!",
+			"[shake]I- I don't want to be here!"
 		],
 		"Ragdolled1": [
 			"Woah!",
 			"Ouch!",
 			"Hey!",
-			"Agh!"
+			"[shake]Agh!"
 		],
 		"Ouchies": [
 			"[shake]Stop!",

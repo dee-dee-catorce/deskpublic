@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="deskthing"
-run/main_scene="uid://lixpyau0oh5k"
+run/main_scene="uid://nbfrphs14wxt"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="deedee14/expet"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")

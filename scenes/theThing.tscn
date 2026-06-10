@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bu1nlyxwv0ll8" path="res://Scripts/nimpo/popupMenu.gd" id="1_yekbp"]
 [ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="2_aywyk"]
 
-[node name="Control" type="Control" unique_id=1446517993]
+[node name="tempMenu" type="Control" unique_id=1446517993 node_paths=PackedStringArray("clickthrough")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,12 +12,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yekbp")
+clickthrough = NodePath("ColorRect/ClickArea")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=273800588]
 layout_mode = 0
 offset_right = 379.9726
 offset_bottom = 138.0
 color = Color(0, 0, 0, 0.42745098)
+
+[node name="ClickArea" type="Control" parent="ColorRect" unique_id=653484295]
+layout_mode = 1
+anchor_left = -0.19738266
+anchor_top = -0.13768116
+anchor_right = 1.1609721
+anchor_bottom = 1.1586822
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_aywyk")
+metadata/_custom_type_script = "uid://blg811jk2cjt4"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ClickArea" unique_id=175514492]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017437212
+anchor_top = -0.039128408
+anchor_right = 1.0174372
+anchor_bottom = 0.9608716
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.29411766)
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=2101210577]
 custom_minimum_size = Vector2(100, 0)
@@ -70,19 +97,6 @@ work yet)"
 [node name="Button" type="Button" parent="ColorRect/HBoxContainer" unique_id=746590826]
 layout_mode = 2
 text = "close"
-
-[node name="ClickArea" type="Control" parent="ColorRect" unique_id=653484295]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -46.027405
-offset_right = 46.027405
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("2_aywyk")
-metadata/_custom_type_script = "uid://blg811jk2cjt4"
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/pet" to="." method="_on_pet_pressed"]

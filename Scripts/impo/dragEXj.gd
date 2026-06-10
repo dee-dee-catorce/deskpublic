@@ -5,7 +5,7 @@ extends Node
 
 @export var _dect: Area2D
 @export var mainrigid: RigidBody2D
-
+@export var root: Node2D
 var _foundDect := true
 var _hovering := false
 var _currLine := 0.0
@@ -69,7 +69,7 @@ func _startDrag(mousePos: Vector2) -> void:
 	if not mainrigid:
 		push_warning("mainrigid is not assigned!")
 		return
-
+	root.tempRagdoll()
 	_dragging = true
 
 	_dragger = StaticBody2D.new()
@@ -99,7 +99,7 @@ func _startDrag(mousePos: Vector2) -> void:
 
 func _stopDrag() -> void:
 	_dragging = false
-
+	root.Stand()
 	if _dragger:
 		_dragger.queue_free()
 		_dragger = null

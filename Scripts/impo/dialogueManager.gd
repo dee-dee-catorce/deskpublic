@@ -15,7 +15,7 @@ var textspeed: float = 0.04
 #AnimationPlayer
 #the stuff that will cause the text to delay
 var pause: Array = [
-	"'",
+
 	",",
 	".",
 	"!"
@@ -44,6 +44,7 @@ func _ready() -> void:
 	pass
 	GlobalVariable.pet.connect(petResponse)
 	GlobalVariable.feed.connect(feed)
+	passive()
 
 #ripped straight from a tutorial
 
@@ -82,7 +83,8 @@ func typeOut(string: String, speed_multiplier: float = 1.0):
 			i += 1
 
 		if tr != h:
-			return # Replaced while waiting on final timer
+			return
+			
 
 		isTyping = false
 		stoptalking.emit()
@@ -162,8 +164,28 @@ func petResponse(t: bool):
 	send()
 pass # Replace with function body.
 
-func feed(t: bool):
-	pool = data.FoodGood
+func feed(_t: bool):
+	if mood <= -50:
+		pool = data.Interested
+	else:
+		pool = data.FoodGood
 	speedMod = 1.2
 	send()
 	pass
+
+func passive():
+	while true:
+		await get_tree().create_timer(randi_range(20, 60)).timeout
+		if mood > 50:
+			pool = data.HappyPassive
+			speedMod = 1.2
+		elif mood >= 0:
+			pool = data.MidPassive
+			speedMod = 1
+		elif mood >= -25:
+			pool = data.LowPassive
+			speedMod = .8
+		elif mood >= -50:
+			pool = data.VeryLowPassive
+			speedMod = .7
+		send()

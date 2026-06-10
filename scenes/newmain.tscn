@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://nbfrphs14wxt"]
+
+[ext_resource type="PackedScene" uid="uid://b5w1ad1cltbtw" path="res://scenes/consoleThing.tscn" id="1_1ywsh"]
+[ext_resource type="Script" uid="uid://0kq78j6rijnm" path="res://Scripts/impo/main.gd" id="1_8gj0p"]
+[ext_resource type="PackedScene" uid="uid://c7c1p606qfkbq" path="res://scenes/imgonnafreakout/expie.tscn" id="2_8gj0p"]
+[ext_resource type="PackedScene" uid="uid://cydyko0hjl4jh" path="res://scenes/objects/crate.tscn" id="3_rpihv"]
+[ext_resource type="PackedScene" uid="uid://cssci7xyy8e80" path="res://scenes/objects/YellowFlesh.tscn" id="4_oukrk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fn1ne"]
+
+[sub_resource type="GDScript" id="GDScript_gct8d"]
+script/source = "extends StaticBody2D
+
+var screenWidth: int = DisplayServer.screen_get_usable_rect().size.x
+var screenHeight: int = DisplayServer.screen_get_usable_rect().size.y
+
+var taskbarPos: int = DisplayServer.screen_get_usable_rect().end.y
+
+
+func _ready() -> void:
+	pass
+"
+
+[node name="newmain" type="Node2D" unique_id=827416073 node_paths=PackedStringArray("console")]
+script = ExtResource("1_8gj0p")
+console = NodePath("ConsoleContainer")
+
+[node name="ConsoleContainer" parent="." unique_id=2061047100 instance=ExtResource("1_1ywsh")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1060.0
+offset_top = 118.0
+offset_right = 1408.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1727446454]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1591267612]
+shape = SubResource("WorldBoundaryShape2D_fn1ne")
+
+[node name="SideR" type="StaticBody2D" parent="." unique_id=224754577]
+rotation = -1.5707964
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideR" unique_id=2146665891]
+shape = SubResource("WorldBoundaryShape2D_fn1ne")
+
+[node name="SideL" type="StaticBody2D" parent="." unique_id=2011767522]
+rotation = 1.5707964
+collision_layer = 9
+collision_mask = 9
+script = SubResource("GDScript_gct8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideL" unique_id=1825212476]
+shape = SubResource("WorldBoundaryShape2D_fn1ne")
+
+[node name="Char" parent="." unique_id=1929009500 instance=ExtResource("2_8gj0p")]
+position = Vector2(1297, 484)
+scale = Vector2(2, 2)
+
+[node name="Body" parent="." unique_id=371602465 instance=ExtResource("3_rpihv")]
+position = Vector2(854, 355)
+
+[node name="Body2" parent="." unique_id=1456578894 instance=ExtResource("4_oukrk")]
+position = Vector2(397, 260)
+
+[node name="Body3" parent="." unique_id=563378303 instance=ExtResource("4_oukrk")]
+position = Vector2(516, 223)
+
+[node name="Body4" parent="." unique_id=2050898328 instance=ExtResource("4_oukrk")]
+position = Vector2(389, 205)
+
+[node name="Body5" parent="." unique_id=1365763842 instance=ExtResource("4_oukrk")]
+position = Vector2(307, 201)
+
+[node name="Body6" parent="." unique_id=1344365849 instance=ExtResource("4_oukrk")]
+position = Vector2(471, 129)

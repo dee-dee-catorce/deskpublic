@@ -13,9 +13,6 @@ why did i fucking think of that when i was killing myself on that damn plane!!??
 var cur: bool = false
 
 func _process(_delta: float) -> void:
-    if not get_parent().visible:
-        change(false)
-        return
     var mouse_pos: Vector2 = get_global_mouse_position()
     var inside: bool = (
         mouse_pos.x >= global_position.x and

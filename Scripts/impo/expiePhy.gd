@@ -18,6 +18,8 @@ var def = Vector2(-104, -12)
 var itemsOfInterest: Array[RigidBody2D] = []
 var interestValues: Dictionary = {}
 var mouseinrange = false
+
+var beingdragged = false
 # states
 enum States {IDLE, KNOCKEDOUT, WALKING}
 
@@ -90,6 +92,9 @@ func stateUpd():
 	var speed: float = rootBody.linear_velocity.length()
 	var hSpeed: float = abs(rootBody.linear_velocity.x)
 
+
+	if beingdragged:
+		return
 	# only do state stuff if were allowed to get up
 	if getup == true:
 		if speed > 400:
@@ -98,9 +103,10 @@ func stateUpd():
 			getupF(3)
 			ragdoll.emit()
 		else:
-			if hSpeed > 5:
+			if hSpeed > 5 and not beingdragged:
 				#_setMove(true)
 				setState(States.WALKING)
+				
 			else:
 				#_setMove(true)
 				setState(States.IDLE)
@@ -128,6 +134,8 @@ func setState(newState: States):
 		isKnockedOut = false
 
 	elif currentState == States.IDLE:
+		if isKnockedOut:
+			rootBody.global_position = $Ragdoll/GBHB/LowerTorso.global_position + Vector2(0, -150)
 		blendValue = 0.99
 		animPlayer.play("idle")
 		isWalking = false
@@ -143,7 +151,8 @@ func physState(delta: float):
 			#$Ragdoll/GBHB/LowerTorso.global_position = rootBody.global_position + direction.limit_length(300)
 			#no that made it look weird
 			pass
-
+		if beingdragged:
+			return
 	elif currentState == States.WALKING or currentState == States.IDLE:
 		#this doesnt work. i took this as a placeholder  until i could get something better going
 		#i never got rid of it and it doesnt work
@@ -206,6 +215,8 @@ func driveBodyToTransform(body: RigidBody2D, target, delta: float):
 func getupF(time):
 	getup = false
 	await get_tree().create_timer(time).timeout
+	if beingdragged:
+		return
 	getup = true
 
 
@@ -257,11 +268,16 @@ func stopMovement():
 	rootBody.linear_velocity.x = 0
 
 func moveToX(x: float, force: float = 300.0):
-	if abs(rootBody.global_position.x - x) <= 50:
+	# made it to where it cant go outside a specific range
+	var safeMinX = 300
+	var safeMaxX = GlobalVariable.screenWidth - 300
+	var targetX = clamp(x, safeMinX, safeMaxX)
+
+	var dir = sign(targetX - rootBody.global_position.x)
+
+	if abs(rootBody.global_position.x - targetX) <= 25:
 		stopMovement()
 		return
-
-	var dir = sign(x - rootBody.global_position.x)
 	rootBody.linear_velocity.x = move_toward(rootBody.linear_velocity.x, dir * force, force)
 
 func updateRandomWalk(delta: float):
@@ -280,7 +296,7 @@ func updateRandomWalk(delta: float):
 		idleTimer += delta
 
 		if idleTimer >= idleWaitTime:
-			randomWalkTarget = rootBody.global_position.x + randf_range(-randomWalkRange, randomWalkRange)
+			randomWalkTarget = clamp(rootBody.global_position.x + randf_range(-randomWalkRange, randomWalkRange), 300, GlobalVariable.screenWidth - 300)
 			randomwalking = true
 
 func _on_rapier_area_2d_body_entered(body: Node2D) -> void:
@@ -330,3 +346,20 @@ func rtEnable(val: bool):
 			rtt.update_position = not val
 			rtt.update_rotation = not val
 			rtt.update_scale = not val
+
+
+#placeholder fix for the drag thing being shit
+
+func tempRagdoll():
+	beingdragged = true
+	ragdoll.emit()
+	#$Ragdoll/GBHB/LowerTorso.freeze = true
+	setState(States.KNOCKEDOUT)
+
+
+func Stand():
+	beingdragged = false
+	getupF(4)
+	#rootBody.global_position = $Ragdoll/GBHB/LowerTorso.global_position
+	#$Ragdoll/GBHB/LowerTorso.freeze = false
+	#setState(States.IDLE)

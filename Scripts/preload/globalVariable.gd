@@ -1,5 +1,12 @@
 extends Node
 
+#i probably shouldve put these here earlier but better late than never
+
+#ill fix the scripts that redefine these when it bothers me enough
+var screenWidth: int = DisplayServer.screen_get_usable_rect().size.x
+var screenHeight: int = DisplayServer.screen_get_usable_rect().size.y
+
+var taskbarPos: int = DisplayServer.screen_get_usable_rect().end.y
 
 var clickZoneSum: int = 0
 
