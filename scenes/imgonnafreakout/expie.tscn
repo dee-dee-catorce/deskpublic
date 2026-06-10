@@ -1361,14 +1361,15 @@ script = ExtResource("3_qcy87")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="BMD" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1418203166]
-position = Vector2(2.076679, 30.850449)
-rotation = 0.53712904
-scale = Vector2(1.0000037, 1.0000037)
+position = Vector2(2.0766943, 30.850441)
+rotation = 0.5371291
+scale = Vector2(1.0000058, 1.0000058)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
 script = ExtResource("3_qcy87")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
+metadata/triggerLandmine = true
 
 [node name="FMD" type="Sprite2D" parent="Ragdoll/GBHB/BMD" unique_id=1120580131]
 texture_filter = 1
@@ -1384,8 +1385,8 @@ shape = SubResource("RectangleShape2D_5udqb")
 
 [node name="BThigh" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=777746595]
 position = Vector2(7.666667, 15.333333)
-rotation = 0.10079679
-scale = Vector2(0.99999774, 0.99999774)
+rotation = 0.10079678
+scale = Vector2(0.9999978, 0.9999978)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1407,9 +1408,9 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_iwp8c")
 
 [node name="BCalf" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1267289094]
-position = Vector2(6.1826253, 48.72434)
-rotation = 0.53712904
-scale = Vector2(0.9999901, 0.9999901)
+position = Vector2(6.182623, 48.724377)
+rotation = 0.5371291
+scale = Vector2(0.9999923, 0.9999923)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1431,9 +1432,9 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("CapsuleShape2D_8yhbw")
 
 [node name="BUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=187194708]
-position = Vector2(7.051214, -14.663181)
-rotation = 0.44255498
-scale = Vector2(0.9999791, 0.9999791)
+position = Vector2(7.051215, -14.663136)
+rotation = 0.44255462
+scale = Vector2(0.999979, 0.999979)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1453,9 +1454,9 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1094801779]
-position = Vector2(-2.7985854, 6.121207)
-rotation = 0.48600438
-scale = Vector2(0.9999733, 0.9999733)
+position = Vector2(-2.798639, 6.1213627)
+rotation = 0.48600456
+scale = Vector2(0.9999773, 0.9999773)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1474,9 +1475,9 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=2023872310]
-position = Vector2(-12.65734, 26.924492)
-rotation = 0.48600438
-scale = Vector2(0.9999733, 0.9999733)
+position = Vector2(-12.657435, 26.924728)
+rotation = 0.48600456
+scale = Vector2(0.9999773, 0.9999773)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1560,9 +1561,9 @@ position = Vector2(-0.2691827, -13.997457)
 shape = SubResource("CapsuleShape2D_4iwlt")
 
 [node name="FMD" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1371767246]
-position = Vector2(0.7712995, 30.315174)
-rotation = 0.62269497
-scale = Vector2(0.99997646, 0.99997646)
+position = Vector2(0.77128994, 30.31517)
+rotation = 0.62269557
+scale = Vector2(0.9999765, 0.9999765)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1585,8 +1586,8 @@ shape = SubResource("RectangleShape2D_5udqb")
 
 [node name="FThigh" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=833786154]
 position = Vector2(7.666667, 15.333337)
-rotation = 0.1863627
-scale = Vector2(0.9999793, 0.9999793)
+rotation = 0.18636326
+scale = Vector2(0.99997944, 0.99997944)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1607,9 +1608,9 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_iwp8c")
 
 [node name="FCalf" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1358723462]
-position = Vector2(6.1576734, 49.28574)
-rotation = 0.1514684
-scale = Vector2(0.99997395, 0.99997395)
+position = Vector2(6.157674, 49.285713)
+rotation = 0.15146807
+scale = Vector2(0.9999745, 0.9999745)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1628,11 +1629,12 @@ visible = false
 position = Vector2(7.361637, -0.9971924)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("CapsuleShape2D_8yhbw")
+metadata/triggerLandmine = true
 
 [node name="FUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1182223554]
-position = Vector2(5.3383946, -11.048906)
-rotation = 0.44255382
-scale = Vector2(0.999898, 0.999898)
+position = Vector2(5.3383946, -11.0488615)
+rotation = 0.44255403
+scale = Vector2(0.9998978, 0.9998978)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1652,9 +1654,9 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="FForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=247605523]
-position = Vector2(-2.7988038, 6.121663)
-rotation = 0.4860044
-scale = Vector2(0.99984264, 0.99984264)
+position = Vector2(-2.7988012, 6.1217012)
+rotation = 0.48600465
+scale = Vector2(0.9998401, 0.9998401)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1673,9 +1675,9 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="FHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=559681033]
-position = Vector2(-12.656272, 26.92223)
-rotation = 0.4860044
-scale = Vector2(0.99984264, 0.99984264)
+position = Vector2(-12.656247, 26.92221)
+rotation = 0.48600465
+scale = Vector2(0.9998401, 0.9998401)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1840,7 +1842,7 @@ remote_path = NodePath("../../../../../UpperTorso")
 
 [node name="Head" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back" unique_id=1606197458]
 position = Vector2(0, -28)
-rotation = -0.023851205
+rotation = -0.023851203
 scale = Vector2(0.9998952, 0.9998952)
 rest = Transform2D(0.99978465, 0.015911827, -0.015911827, 0.99978465, 0, -28)
 auto_calculate_length_and_angle = false
@@ -1894,7 +1896,7 @@ remote_path = NodePath("../../../../../../BUpperArm")
 
 [node name="BFore" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back/BUarm" unique_id=2080187590]
 position = Vector2(1.3589859e-05, 23.000805)
-rotation = 0.043449856
+rotation = 0.043449853
 scale = Vector2(0.9999989, 0.9999989)
 rest = Transform2D(1.0000001, 0, 0, 1.0000001, 3.5762787e-07, 23.00082)
 metadata/_local_pose_override_enabled_ = true
@@ -1943,6 +1945,7 @@ position = Vector2(1, -40)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB" unique_id=1020414931]
 position = Vector2(7.777778, 8.888889)
 shape = SubResource("CapsuleShape2D_aycd3")
+metadata/triggerLandmine = true
 
 [node name="RapierArea2D" type="Area2D" parent="Ragdoll/GBHB" unique_id=969823209]
 script = ExtResource("15_qcy87")
@@ -1955,6 +1958,7 @@ shape = SubResource("CircleShape2D_46rnx")
 [node name="RapierArea2D2" type="Area2D" parent="Ragdoll/GBHB" unique_id=1635857817]
 script = ExtResource("15_qcy87")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
+metadata/triggerLandmine = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/RapierArea2D2" unique_id=352619361]
 position = Vector2(7.777778, 8.888889)
