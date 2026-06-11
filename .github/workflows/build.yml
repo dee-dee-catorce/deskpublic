@@ -1,0 +1,64 @@
+name: Autobuild for godot
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+    workflow_dispatch:
+
+env:
+    GODOT_V: "4.6"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: Fetch Godot ${{ env.GODOT_V }}
+          run: |
+            GODOT_URL="https://github.com/godotengine/godot/releases/download/${GODOT_V}-stable/Godot_v${GODOT_V}-stable_linux.x86_64.zip"
+            wget -q "$GODOT_URL" -O godot.zip
+            unzip -q godot.zip
+            mv "Godot_v${GODOT_V}-stable_linux.x86_64" godot
+            chmod +x godot
+
+        # i hate this but its the only way i found to make it work.
+        - name: Fetch export templates
+          run: |
+            TEMPLATES_URL="https://github.com/godotengine/godot/releases/download/${GODOT_V}-stable/Godot_v${GODOT_V}-stable_export_templates.tpz"
+            wget -q "$TEMPLATES_URL" -O templates.tpz
+            mkdir -p ~/.local/share/godot/export_templates/${GODOT_V}.stable
+            unzip -q templates.tpz -d templates_extracted
+            mv templates_extracted/templates/* ~/.local/share/godot/export_templates/${GODOT_V}.stable/
+
+        - name: Clone godot-console
+          run: |
+            mkdir -p addons
+            git clone https://github.com/4d49/godot-console.git addons/godot-console
+
+        - name: Create build output folder
+          run: |
+            mkdir -p build/windows
+            mkdir -p build/linux
+
+        - name: Export Windows build
+          run: |
+            ./godot --headless --export-release "Windows Desktop" build/windows/desktop-expie.exe
+
+        - name: Export Linux build
+          run: |
+            ./godot --headless --export-release "Linux/X11" build/linux/desktop-expie.x86_64
+
+        - name: Upload Windows artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: desktop-expie-windows
+            path: build/windows/
+
+        - name: Upload Linux artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: desktop-expie-linux
+            path: build/linux/
