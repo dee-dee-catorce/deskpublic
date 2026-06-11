@@ -27,16 +27,26 @@ func _cust(cmd: String):
 
 
 func _setmood(val: float):
-	gbData.data.save.mood = val
+	gbData.data.save["mood"] = val
 	gbData.savetodisk("user://SAVE.json", gbData.data)
 	return val
 
-func _additem():
+func _sethunger(val: float):
+	gbData.data.save["hunger"] = val
+	gbData.savetodisk("user://SAVE.json", gbData.data)
+	return val
+
+func _additem(item: String = "crate"):
 # add crate only for now
-	var scene = preload("res://scenes/objects/crate.tscn")
+	var path = "res://scenes/objects/" + item + ".tscn"
+	if !ResourceLoader.exists(path):
+		Console.error("No such object '" + item + "'")
+		return
+	var scene = load(path)
 	var instance = scene.instantiate()
 	get_tree().current_scene.add_child(instance)
 	instance.position = get_viewport().get_mouse_position()
+	instance.owner = get_tree().current_scene
 					
 
 func resize(nx, ny):
@@ -62,7 +72,7 @@ func resize(nx, ny):
 	return "resized"
 
 func deathLoop():
-	Console.execute("log I_HATE_YOU")
+	Console.error("I HATE YOU")
 	await get_tree().create_timer(.1).timeout
 	deathLoop()
 
@@ -70,7 +80,8 @@ func _ready():
 	Console.create_command("log", _log, "Log a string to the console.")
 	Console.create_command("resizeConsole", resize, "resize the console")
 	##Console.create_command("killExpie", killExpie, "Yeha")
-	Console.create_command("setMood", _setmood, "Set the mood of the expie i dont even think this works")
+	Console.create_command("setMood", _setmood, "Set the mood of the expie")
+	Console.create_command("setHunger", _sethunger, "Set the hunger of the expie")
 	Console.create_command("spawn", _additem, "spawn shit")
 	#Console.create_command("deathLoop", deathLoop, "please dont crash")
 	Console.execute("help")

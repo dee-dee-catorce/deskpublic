@@ -11,6 +11,7 @@ var mouseDectDistance = 300
 var getup = true
 var rootBody: RigidBody2D
 var boneBodies: Dictionary = {}
+var bodyBones: Dictionary = {}
 var ragdollOrigin: Vector2 = Vector2.ZERO
 var moving := false
 var settings = gbData.settings
@@ -190,6 +191,7 @@ func pair(boneName: String, body: RigidBody2D):
 		return
 
 	boneBodies[boneNode] = body
+	bodyBones[body] = boneNode
 	body.global_transform = boneNode.global_transform
 
 func getTotal(bone: Bone2D) -> Transform2D:
