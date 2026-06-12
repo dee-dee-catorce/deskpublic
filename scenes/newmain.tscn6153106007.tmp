@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5w1ad1cltbtw" path="res://scenes/consoleThing.tscn" id="1_1ywsh"]
 [ext_resource type="Script" uid="uid://0kq78j6rijnm" path="res://Scripts/impo/main.gd" id="1_8gj0p"]
 [ext_resource type="PackedScene" uid="uid://c7c1p606qfkbq" path="res://scenes/imgonnafreakout/expie.tscn" id="2_8gj0p"]
-[ext_resource type="PackedScene" uid="uid://bbiuiqx0e45ds" path="res://scenes/objects/landmine.tscn" id="4_rpihv"]
+[ext_resource type="PackedScene" uid="uid://lixpyau0oh5k" path="res://scenes/main.tscn" id="4_1ywsh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fn1ne"]
 
@@ -65,6 +65,4 @@ shape = SubResource("WorldBoundaryShape2D_fn1ne")
 position = Vector2(1297, 484)
 scale = Vector2(2, 2)
 
-[node name="Body" parent="." unique_id=371602465 instance=ExtResource("4_rpihv")]
-position = Vector2(287, 383)
-scale = Vector2(2.2649527, 2.2649527)
+[node name="main" parent="." unique_id=347643985 instance=ExtResource("4_1ywsh")]

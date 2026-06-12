@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://0kq78j6rijnm" path="res://Scripts/impo/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://b5w1ad1cltbtw" path="res://scenes/consoleThing.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://cydyko0hjl4jh" path="res://scenes/objects/crate.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://c7c1p606qfkbq" path="res://scenes/imgonnafreakout/expie.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cssci7xyy8e80" path="res://scenes/objects/YellowFlesh.tscn" id="8_tipki"]
 
@@ -18,6 +17,7 @@ var taskbarPos: int = DisplayServer.screen_get_usable_rect().end.y
 
 
 func _ready() -> void:
+	pass
 	
 "
 
@@ -66,20 +66,5 @@ shape = SubResource("WorldBoundaryShape2D_0wfyh")
 position = Vector2(1297, 484)
 scale = Vector2(2, 2)
 
-[node name="Body" parent="." unique_id=371602465 instance=ExtResource("4_jyhfs")]
-position = Vector2(854, 355)
-
-[node name="Body2" parent="." unique_id=1213381413 instance=ExtResource("8_tipki")]
-position = Vector2(397, 260)
-
-[node name="Body3" parent="." unique_id=995324098 instance=ExtResource("8_tipki")]
-position = Vector2(516, 223)
-
-[node name="Body4" parent="." unique_id=200412565 instance=ExtResource("8_tipki")]
-position = Vector2(389, 205)
-
-[node name="Body5" parent="." unique_id=1237601745 instance=ExtResource("8_tipki")]
-position = Vector2(307, 201)
-
-[node name="Body6" parent="." unique_id=940063279 instance=ExtResource("8_tipki")]
-position = Vector2(471, 129)
+[node name="Body21" parent="." unique_id=1786349250 instance=ExtResource("8_tipki")]
+position = Vector2(696, 320)

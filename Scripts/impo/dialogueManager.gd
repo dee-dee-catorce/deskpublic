@@ -181,11 +181,15 @@ func passive():
 			speedMod = 1.2
 		elif mood >= 0:
 			pool = data.MidPassive
-			speedMod = 1
+			speedMod = 1.0
 		elif mood >= -25:
 			pool = data.LowPassive
-			speedMod = .8
+			speedMod = 0.8
 		elif mood >= -50:
 			pool = data.VeryLowPassive
-			speedMod = .7
+			speedMod = 0.7
+		else:
+			pool = data.VeryLowPassive
+			speedMod = 0.5
+			
 		send()
