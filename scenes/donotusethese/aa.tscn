@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://bx0gwvq6a4ynh"]
 
-[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_20a3t"]
-[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="2_4g43c"]
-[ext_resource type="Texture2D" uid="uid://npkviyjb3h34" path="res://assets/Limblets/shin.png" id="3_u58y6"]
-[ext_resource type="Texture2D" uid="uid://r38d8wb5mgc5" path="res://assets/Limblets/thighUPD.png" id="4_nll0f"]
-[ext_resource type="Texture2D" uid="uid://kuqu4noi17mv" path="res://assets/Limblets/Calf.png" id="5_x1200"]
-[ext_resource type="Texture2D" uid="uid://cy1vmp7357aj7" path="res://assets/Limblets/UpperArm.png" id="6_3m4pp"]
-[ext_resource type="Texture2D" uid="uid://p3fsantvkni6" path="res://assets/Limblets/ForeArm.png" id="7_l0fvo"]
-[ext_resource type="Texture2D" uid="uid://ctiq335o2t31p" path="res://assets/Limblets/tail.png" id="8_ht10m"]
-[ext_resource type="Texture2D" uid="uid://cvlnmqlu7l8db" path="res://assets/Limblets/lowerTorso.png" id="9_ypkvf"]
-[ext_resource type="Texture2D" uid="uid://clxk44sw6c2p2" path="res://assets/Limblets/UpperT.png" id="10_jfhi3"]
-[ext_resource type="Texture2D" uid="uid://bu4f1rxb3rmc4" path="res://assets/Limblets/Hands-Sheet.png" id="11_l1ks1"]
-[ext_resource type="Texture2D" uid="uid://c2gk0qhmg7k52" path="res://assets/Limblets/FaceStuff/Heads.png" id="12_5ibby"]
-[ext_resource type="Texture2D" uid="uid://cwoted7wdudvw" path="res://assets/Limblets/FaceStuff/Eyes.png" id="13_7ptpt"]
-[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="14_8eqjp"]
-[ext_resource type="Script" uid="uid://bhc642h64r7ev" path="res://Scripts/impo/moodSys.gd" id="15_poja4"]
-[ext_resource type="Script" uid="uid://da7sjmfsmufll" path="res://Scripts/impo/dialogueManager.gd" id="16_bmwln"]
-[ext_resource type="Script" uid="uid://0pc8830srg3u" path="res://Scripts/impo/phyManager.gd" id="17_7jorb"]
+[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_3jlj0"]
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="2_206ff"]
+[ext_resource type="Texture2D" uid="uid://npkviyjb3h34" path="res://assets/Limblets/shin.png" id="3_02dsj"]
+[ext_resource type="Texture2D" uid="uid://r38d8wb5mgc5" path="res://assets/Limblets/thighUPD.png" id="4_nwlwt"]
+[ext_resource type="Texture2D" uid="uid://kuqu4noi17mv" path="res://assets/Limblets/Calf.png" id="5_3jg8l"]
+[ext_resource type="Texture2D" uid="uid://cy1vmp7357aj7" path="res://assets/Limblets/UpperArm.png" id="6_bsr4e"]
+[ext_resource type="Texture2D" uid="uid://p3fsantvkni6" path="res://assets/Limblets/ForeArm.png" id="7_p7txy"]
+[ext_resource type="Texture2D" uid="uid://ctiq335o2t31p" path="res://assets/Limblets/tail.png" id="8_rxkti"]
+[ext_resource type="Texture2D" uid="uid://cvlnmqlu7l8db" path="res://assets/Limblets/lowerTorso.png" id="9_sjnrq"]
+[ext_resource type="Texture2D" uid="uid://clxk44sw6c2p2" path="res://assets/Limblets/UpperT.png" id="10_ki7vv"]
+[ext_resource type="Texture2D" uid="uid://bu4f1rxb3rmc4" path="res://assets/Limblets/Hands-Sheet.png" id="11_yk024"]
+[ext_resource type="Texture2D" uid="uid://c2gk0qhmg7k52" path="res://assets/Limblets/FaceStuff/Heads.png" id="12_m2icc"]
+[ext_resource type="Texture2D" uid="uid://cwoted7wdudvw" path="res://assets/Limblets/FaceStuff/Eyes.png" id="13_nfije"]
+[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="14_p45qk"]
+[ext_resource type="Script" uid="uid://bhc642h64r7ev" path="res://Scripts/impo/moodSys.gd" id="15_eb36a"]
+[ext_resource type="Script" uid="uid://da7sjmfsmufll" path="res://Scripts/impo/dialogueManager.gd" id="16_d0nqy"]
+[ext_resource type="Script" uid="uid://0pc8830srg3u" path="res://Scripts/impo/phyManager.gd" id="17_aah7s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c40aw"]
 
@@ -1133,7 +1133,7 @@ angular_limit_enabled = true
 angular_limit_lower = -0.34906584
 angular_limit_upper = 0.34906584
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="FUArm" type="PinJoint2D" parent="Ragdoll/Pins/RBack" unique_id=1789431165]
@@ -1145,7 +1145,7 @@ angular_limit_enabled = true
 angular_limit_lower = -2.6179938
 angular_limit_upper = 1.134464
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="FFoArm" type="PinJoint2D" parent="Ragdoll/Pins/RBack/FUArm" unique_id=811576918]
@@ -1157,7 +1157,7 @@ angular_limit_enabled = true
 angular_limit_lower = -2.9670596
 angular_limit_upper = 0.08726646
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="Fhand" type="PinJoint2D" parent="Ragdoll/Pins/RBack/FUArm/FFoArm" unique_id=96587246]
@@ -1169,7 +1169,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.0471976
 angular_limit_upper = 1.0471976
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="BUArm" type="PinJoint2D" parent="Ragdoll/Pins/RBack" unique_id=1181252163]
@@ -1181,7 +1181,7 @@ angular_limit_enabled = true
 angular_limit_lower = -2.6179938
 angular_limit_upper = 1.134464
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="BFoArm" type="PinJoint2D" parent="Ragdoll/Pins/RBack/BUArm" unique_id=1234560031]
@@ -1193,7 +1193,7 @@ angular_limit_enabled = true
 angular_limit_lower = -2.9670596
 angular_limit_upper = 0.08726646
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="Bhand" type="PinJoint2D" parent="Ragdoll/Pins/RBack/BUArm/BFoArm" unique_id=882314178]
@@ -1205,7 +1205,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.0471976
 angular_limit_upper = 1.0471976
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="FThigh" type="PinJoint2D" parent="Ragdoll/Pins/RBack" unique_id=688609438]
@@ -1217,7 +1217,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="FMD" type="PinJoint2D" parent="Ragdoll/Pins/RBack/FThigh" unique_id=947125709]
@@ -1229,7 +1229,7 @@ angular_limit_enabled = true
 angular_limit_lower = -0.2617994
 angular_limit_upper = 0.08726646
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="FCalf" type="PinJoint2D" parent="Ragdoll/Pins/RBack/FThigh/FMD" unique_id=1597613879]
@@ -1241,7 +1241,7 @@ softness = 3.0
 angular_limit_enabled = true
 angular_limit_upper = 1.5707964
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="BThigh" type="PinJoint2D" parent="Ragdoll/Pins/RBack" unique_id=2100157452]
@@ -1253,7 +1253,7 @@ angular_limit_enabled = true
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="BMD" type="PinJoint2D" parent="Ragdoll/Pins/RBack/BThigh" unique_id=1624305792]
@@ -1265,7 +1265,7 @@ angular_limit_enabled = true
 angular_limit_lower = -0.2617994
 angular_limit_upper = 0.08726646
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="BCalf" type="PinJoint2D" parent="Ragdoll/Pins/RBack/BThigh/BMD" unique_id=1776420357]
@@ -1277,7 +1277,7 @@ softness = 3.0
 angular_limit_enabled = true
 angular_limit_upper = 1.5707964
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="Tail" type="PinJoint2D" parent="Ragdoll/Pins/RBack" unique_id=1961354230]
@@ -1286,7 +1286,7 @@ scale = Vector2(0.8315946, 0.8315946)
 node_a = NodePath("../../../GBHB/LowerTorso")
 node_b = NodePath("../../../GBHB/Tail")
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="Head" type="PinJoint2D" parent="Ragdoll/Pins" unique_id=101209592]
@@ -1298,32 +1298,32 @@ angular_limit_enabled = true
 angular_limit_lower = -1.0471976
 angular_limit_upper = 1.0471976
 motor_target_velocity = 1.7453293
-script = ExtResource("1_20a3t")
+script = ExtResource("1_3jlj0")
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="GBHB" type="RigidBody2D" parent="Ragdoll" unique_id=335475296]
 position = Vector2(0, 6.666667)
 collision_layer = 8
 lock_rotation = true
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="BMD" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1900405276]
-position = Vector2(-8.663864, 28.33588)
+position = Vector2(-12.464612, 23.699898)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FMD" type="Sprite2D" parent="Ragdoll/GBHB/BMD" unique_id=117341575]
 texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(8.511366, 0.8985548)
-texture = ExtResource("3_u58y6")
+texture = ExtResource("3_02dsj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/BMD" unique_id=1925152144]
 position = Vector2(7.361637, -0.9971924)
@@ -1338,7 +1338,7 @@ skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Thigh" type="Sprite2D" parent="Ragdoll/GBHB/BThigh" unique_id=552412452]
@@ -1346,7 +1346,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(-0.79999924, 5.6000004)
 scale = Vector2(0.7906866, 1)
-texture = ExtResource("4_nll0f")
+texture = ExtResource("4_nwlwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/BThigh" unique_id=1616632583]
 visible = false
@@ -1356,14 +1356,14 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_u8535")
 
 [node name="BCalf" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=129047159]
-position = Vector2(-0.45780835, 50.802494)
+position = Vector2(-0.9999935, 60.333347)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Calf" type="Sprite2D" parent="Ragdoll/GBHB/BCalf" unique_id=967857632]
@@ -1371,7 +1371,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(2.2816982, -2.9778454)
 rotation = -0.45261753
-texture = ExtResource("5_x1200")
+texture = ExtResource("5_3jg8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/BCalf" unique_id=553490357]
 visible = false
@@ -1388,14 +1388,14 @@ skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="UpperArm" type="Sprite2D" parent="Ragdoll/GBHB/BUpperArm" unique_id=134126311]
 texture_filter = 1
 material = SubResource("ShaderMaterial_uoa0j")
 position = Vector2(0.19999981, 11)
-texture = ExtResource("6_3m4pp")
+texture = ExtResource("6_bsr4e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/BUpperArm" unique_id=1924881161]
 visible = false
@@ -1404,21 +1404,21 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_jvuxu")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=631031312]
-position = Vector2(-9.457159, 6.104191)
+position = Vector2(-9.45729, 6.1044407)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="ForeArm" type="Sprite2D" parent="Ragdoll/GBHB/BForeArm" unique_id=40137814]
 texture_filter = 1
 material = SubResource("ShaderMaterial_qx3o4")
 position = Vector2(-0.84289026, 5.9699883)
-texture = ExtResource("7_l0fvo")
+texture = ExtResource("7_p7txy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ragdoll/GBHB/BForeArm" unique_id=581256314]
 visible = false
@@ -1426,14 +1426,14 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_76mra")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=99006634]
-position = Vector2(-19.317451, 26.910679)
+position = Vector2(-21.005268, 30.472195)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="HandsSheet" type="Sprite2D" parent="Ragdoll/GBHB/BHand" unique_id=1631253215]
@@ -1459,7 +1459,7 @@ mass = 0.001
 inertia = 0.11
 lock_rotation = true
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Tail2" type="Sprite2D" parent="Ragdoll/GBHB/Tail" unique_id=1582894855]
@@ -1467,7 +1467,7 @@ texture_filter = 1
 position = Vector2(-1.8851702, 7.0519)
 rotation = 1.5133064
 scale = Vector2(0.7738045, 0.69615155)
-texture = ExtResource("8_ht10m")
+texture = ExtResource("8_rxkti")
 
 [node name="LowerTorso" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=861758447]
 position = Vector2(1, 12.333333)
@@ -1475,7 +1475,7 @@ scale = Vector2(0.99999934, 1.0000006)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="LowerTorso" type="Sprite2D" parent="Ragdoll/GBHB/LowerTorso" unique_id=95758024]
@@ -1483,7 +1483,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(0, -6)
 scale = Vector2(0.8333334, 1)
-texture = ExtResource("9_ypkvf")
+texture = ExtResource("9_sjnrq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/LowerTorso" unique_id=1043873778]
 visible = false
@@ -1492,13 +1492,13 @@ shape = SubResource("CapsuleShape2D_4l2ps")
 
 [node name="UpperTorso" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1419433246]
 position = Vector2(0, 5.333334)
-rotation = 0.02168317
-scale = Vector2(16.506773, 1.707514)
+rotation = 0.021683171
+scale = Vector2(16.506788, 1.707514)
 skew = -0.0024547577
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="UpperT" type="Sprite2D" parent="Ragdoll/GBHB/UpperTorso" unique_id=930952184]
@@ -1506,7 +1506,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(0, -15)
 scale = Vector2(0.8736831, 1)
-texture = ExtResource("10_jfhi3")
+texture = ExtResource("10_ki7vv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/UpperTorso" unique_id=1268388655]
 visible = false
@@ -1514,14 +1514,14 @@ position = Vector2(-0.2691827, -13.997457)
 shape = SubResource("CapsuleShape2D_seu7n")
 
 [node name="FMD" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=825750668]
-position = Vector2(-5.2367787, 30.539703)
+position = Vector2(-7.4183927, 29.30949)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FMD" type="Sprite2D" parent="Ragdoll/GBHB/FMD" unique_id=1996755156]
@@ -1529,7 +1529,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(9.673874, -0.31420648)
 rotation = -0.09291616
-texture = ExtResource("3_u58y6")
+texture = ExtResource("3_02dsj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/FMD" unique_id=485789450]
 visible = false
@@ -1546,7 +1546,7 @@ skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Thigh" type="Sprite2D" parent="Ragdoll/GBHB/FThigh" unique_id=2020474162]
@@ -1554,7 +1554,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(-0.79999924, 5.6000004)
 scale = Vector2(0.8068931, 1)
-texture = ExtResource("4_nll0f")
+texture = ExtResource("4_nwlwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/FThigh" unique_id=1675666587]
 visible = false
@@ -1563,14 +1563,14 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_u8535")
 
 [node name="FCalf" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1304004087]
-position = Vector2(-0.89287543, 61.07249)
+position = Vector2(-0.9999985, 60.333332)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Calf" type="Sprite2D" parent="Ragdoll/GBHB/FCalf" unique_id=706370083]
@@ -1578,7 +1578,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_c40aw")
 position = Vector2(3.0139678, -2.0334058)
 rotation = -0.07235621
-texture = ExtResource("5_x1200")
+texture = ExtResource("5_3jg8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/FCalf" unique_id=1385523499]
 visible = false
@@ -1587,21 +1587,21 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("CapsuleShape2D_innvu")
 
 [node name="FUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=625502252]
-position = Vector2(-1.326849, -11.05187)
+position = Vector2(-1.3268374, -11.051828)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="UpperArm" type="Sprite2D" parent="Ragdoll/GBHB/FUpperArm" unique_id=1521133697]
 texture_filter = 1
 material = SubResource("ShaderMaterial_uoa0j")
 position = Vector2(0, 7)
-texture = ExtResource("6_3m4pp")
+texture = ExtResource("6_bsr4e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/FUpperArm" unique_id=492268726]
 visible = false
@@ -1610,21 +1610,21 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_jvuxu")
 
 [node name="FForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1667448871]
-position = Vector2(-9.457315, 6.1045113)
+position = Vector2(-9.457579, 6.1050587)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="ForeArm" type="Sprite2D" parent="Ragdoll/GBHB/FForeArm" unique_id=1816357653]
 texture_filter = 1
 material = SubResource("ShaderMaterial_qx3o4")
 position = Vector2(-0.2429303, 5.969168)
-texture = ExtResource("7_l0fvo")
+texture = ExtResource("7_p7txy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/FForeArm" unique_id=1610804958]
 visible = false
@@ -1632,21 +1632,21 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_76mra")
 
 [node name="FHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=124526124]
-position = Vector2(-19.31624, 26.908115)
+position = Vector2(-21.000502, 30.462147)
 rotation = nan
 scale = Vector2(nan, nan)
 skew = nan
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="HandsSheet" type="Sprite2D" parent="Ragdoll/GBHB/FHand" unique_id=114380554]
 texture_filter = 1
 material = SubResource("ShaderMaterial_qx3o4")
 position = Vector2(-0.4276662, -4.4535165)
-texture = ExtResource("11_l1ks1")
+texture = ExtResource("11_yk024")
 centered = false
 offset = Vector2(-5, 0)
 flip_h = true
@@ -1659,20 +1659,20 @@ shape = SubResource("RectangleShape2D_j6u4w")
 
 [node name="Head" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1487734165]
 position = Vector2(0.53836095, -22.661417)
-rotation = -0.22249077
-scale = Vector2(52.416504, 4.2219477)
-skew = -0.0021708012
+rotation = -0.22249079
+scale = Vector2(52.416576, 4.221948)
+skew = -0.002170682
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
-script = ExtResource("2_4g43c")
+script = ExtResource("2_206ff")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="HeadL" type="Sprite2D" parent="Ragdoll/GBHB/Head" unique_id=956304287]
 texture_filter = 1
 position = Vector2(-1.6046333, -11.599846)
 scale = Vector2(0.9960288, 1.0000758)
-texture = ExtResource("12_5ibby")
+texture = ExtResource("12_m2icc")
 hframes = 8
 frame = 6
 
@@ -1680,7 +1680,7 @@ frame = 6
 texture_filter = 1
 position = Vector2(-2.5501442, -11.782986)
 scale = Vector2(0.8809301, 0.8809301)
-texture = ExtResource("13_7ptpt")
+texture = ExtResource("13_nfije")
 hframes = 8
 frame = 2
 
@@ -1690,7 +1690,7 @@ texture_filter = 1
 position = Vector2(-1.5813665, 10.382118)
 rotation = -3.124942
 scale = Vector2(0.9960288, 1.0000758)
-texture = ExtResource("12_5ibby")
+texture = ExtResource("12_m2icc")
 flip_h = true
 hframes = 8
 frame = 6
@@ -1701,7 +1701,7 @@ texture_filter = 1
 position = Vector2(-2.5269833, 10.198975)
 rotation = -3.124942
 scale = Vector2(0.8809301, 0.8809301)
-texture = ExtResource("13_7ptpt")
+texture = ExtResource("13_nfije")
 flip_h = true
 hframes = 8
 frame = 2
@@ -1843,7 +1843,7 @@ update_scale = false
 
 [node name="Head" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back" unique_id=18735600]
 position = Vector2(0, -28)
-rotation = -0.18122976
+rotation = -0.18122974
 scale = Vector2(0.9999015, 0.9999015)
 rest = Transform2D(0.99978465, 0.015911827, -0.015911827, 0.99978465, 0, -28)
 auto_calculate_length_and_angle = false
@@ -1857,7 +1857,7 @@ update_scale = false
 
 [node name="FUarm" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back" unique_id=494929763]
 position = Vector2(1.4901161e-07, -20.000229)
-rotation = 0.42332536
+rotation = 0.4233254
 scale = Vector2(0.99990046, 0.99990046)
 rest = Transform2D(0.9998377, 0.011104781, -0.011104781, 0.9998377, 4.4703484e-08, -20.000225)
 editor_settings/show_bone_gizmo = false
@@ -1870,7 +1870,7 @@ update_scale = false
 
 [node name="FFore" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back/FUarm" unique_id=1887158132]
 position = Vector2(6.4373016e-06, 23.003056)
-rotation = 0.043450985
+rotation = 0.04345098
 scale = Vector2(0.9999423, 0.9999423)
 rest = Transform2D(0.9999419, 0, 0, 0.9999419, 2.9802322e-08, 23.00305)
 editor_settings/show_bone_gizmo = false
@@ -1907,7 +1907,7 @@ update_scale = false
 [node name="BFore" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back/BUarm" unique_id=1366499523]
 position = Vector2(1.04904175e-05, 23.000801)
 rotation = 0.04345032
-scale = Vector2(0.9999991, 0.9999991)
+scale = Vector2(0.99999905, 0.99999905)
 rest = Transform2D(1.0000001, 0, 0, 1.0000001, 3.5762787e-07, 23.00082)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -1971,7 +1971,7 @@ position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_god6m")
 
 [node name="RapierArea2D" type="Area2D" parent="Ragdoll/GBHB" unique_id=623670743]
-script = ExtResource("14_8eqjp")
+script = ExtResource("14_p45qk")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ragdoll/GBHB/RapierArea2D" unique_id=2039964890]
@@ -1984,24 +1984,16 @@ libraries/ = SubResource("AnimationLibrary_u45ni")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=442525366]
 
 [node name="mood" type="Node" parent="." unique_id=1259211219 node_paths=PackedStringArray("eyeNode", "mouthNode")]
-script = ExtResource("15_poja4")
+script = ExtResource("15_eb36a")
 eyeNode = NodePath("../Ragdoll/GBHB/Head/EyeL")
 mouthNode = NodePath("../Ragdoll/GBHB/Head/HeadL")
 
 [node name="dialogue" type="Node" parent="." unique_id=799268483 node_paths=PackedStringArray("richtextlabel")]
-script = ExtResource("16_bmwln")
+script = ExtResource("16_d0nqy")
 richtextlabel = NodePath("../textParent/RichTextLabel")
 
-[node name="phys" type="Node" parent="." unique_id=603969094 node_paths=PackedStringArray("skeleton", "mainrigid", "tR", "anim", "animtree", "Interest", "areaOfInterest", "testingsomethingrq")]
-script = ExtResource("17_7jorb")
-skeleton = NodePath("../Ragdoll/GBHB/Bones/Skeleton2D")
-mainrigid = NodePath("../Ragdoll/GBHB")
-tR = NodePath("../Ragdoll/GBHB/LowerTorso")
-anim = NodePath("../AnimationPlayer")
-animtree = NodePath("../AnimationTree")
-Interest = NodePath("../Ragdoll/GBHB/Bones/Skeleton2D/IK/Head Target")
-areaOfInterest = NodePath("../Ragdoll/GBHB/RapierArea2D")
-testingsomethingrq = NodePath("../Ragdoll")
+[node name="phys" type="Node" parent="." unique_id=603969094]
+script = ExtResource("17_aah7s")
 
 [node name="textParent" type="Node2D" parent="." unique_id=150627237]
 position = Vector2(0.53617203, -15.000719)
@@ -2024,6 +2016,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="test" from="mood" to="dialogue" method="_on_mood_test"]
 [connection signal="starttalking" from="dialogue" to="mood" method="_on_dialogue_starttalking"]
 [connection signal="stoptalking" from="dialogue" to="mood" method="_on_dialogue_stoptalking"]
-[connection signal="interest" from="phys" to="dialogue" method="_on_phys_interest"]
-[connection signal="ragdollSig" from="phys" to="mood" method="_on_phys_ragdoll_sig"]
-[connection signal="ragdollSig" from="phys" to="dialogue" method="_on_phys_ragdoll_sig"]

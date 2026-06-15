@@ -1439,8 +1439,8 @@ shape = SubResource("CapsuleShape2D_8yhbw")
 
 [node name="BUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=187194708]
 position = Vector2(7.051215, -14.663136)
-rotation = 0.44255474
-scale = Vector2(0.9999791, 0.9999791)
+rotation = 0.44255462
+scale = Vector2(0.999979, 0.999979)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1460,7 +1460,7 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1094801779]
-position = Vector2(-2.7986422, 6.1213627)
+position = Vector2(-2.7986379, 6.121358)
 rotation = 0.4860046
 scale = Vector2(0.9999774, 0.9999774)
 collision_layer = 8
@@ -1481,7 +1481,7 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=2023872310]
-position = Vector2(-12.657442, 26.924732)
+position = Vector2(-12.657437, 26.924728)
 rotation = 0.4860046
 scale = Vector2(0.9999774, 0.9999774)
 collision_layer = 8
@@ -1757,7 +1757,6 @@ shape = SubResource("RectangleShape2D_es5rn")
 debug_color = Color(0.32941177, 0.62352943, 0, 0.41960785)
 
 [node name="Bones" type="Node2D" parent="Ragdoll/GBHB" unique_id=1979520797]
-visible = false
 position = Vector2(6.666667, -6.666667)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Ragdoll/GBHB/Bones" unique_id=1931932818]
@@ -1766,6 +1765,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_08nxv")
 [node name="Hip" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D" unique_id=1974122879]
 position = Vector2(1, 19)
 rest = Transform2D(1, 0, 0, 1, 1, 19.619522)
+editor_settings/show_bone_gizmo = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip" unique_id=450975620]
 remote_path = NodePath("../../../../LowerTorso")
@@ -1775,6 +1775,7 @@ position = Vector2(0, 2.999998)
 rotation = 0.10079689
 scale = Vector2(0.9999978, 0.9999978)
 rest = Transform2D(0.9867879, -0.16200346, 0.16200346, 0.9867879, 0, 3)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegB" unique_id=365634170]
@@ -1785,12 +1786,14 @@ position = Vector2(-4.000179, 16.000864)
 rotation = 0.43633226
 scale = Vector2(1.0000081, 1.0000081)
 rest = Transform2D(0.90631515, 0.42262164, -0.42262164, 0.90631515, -4.0001755, 16.000862)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="CalfB" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegB/ShinB" unique_id=1139401334]
 position = Vector2(12.000915, 7.000889)
 scale = Vector2(0.9999865, 0.9999865)
 rest = Transform2D(0.99998635, 0, 0, 0.99998635, 12.000904, 7.000889)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegB/ShinB/CalfB" unique_id=1510250798]
@@ -1802,6 +1805,7 @@ rest = Transform2D(1, 0, 0, 1, 0.6723347, 6.255175)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -270.0
+editor_settings/show_bone_gizmo = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegB/ShinB/CalfB/Foot" unique_id=688409086]
 remote_path = NodePath("../../../../../../../../BCalf")
@@ -1814,6 +1818,7 @@ position = Vector2(0, 3.000002)
 rotation = 0.18636344
 scale = Vector2(0.9999793, 0.9999793)
 rest = Transform2D(0.9051859, 0.42488933, -0.42488933, 0.9051859, 0, 3)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegF" unique_id=857468576]
@@ -1824,6 +1829,7 @@ position = Vector2(-4.000131, 16.000364)
 rotation = 0.43633226
 scale = Vector2(0.9999971, 0.9999971)
 rest = Transform2D(0.95007485, 0.31201687, -0.31201687, 0.95007485, -4.0001345, 16.000334)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="CalfF" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegF/RN" unique_id=46750907]
@@ -1831,6 +1837,7 @@ position = Vector2(12.001293, 7.000576)
 rotation = -0.47122747
 scale = Vector2(0.99999785, 0.99999785)
 rest = Transform2D(0.84278864, -0.5382419, 0.5382419, 0.84278864, 12.001293, 7.0005836)
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegF/RN/CalfF" unique_id=322677662]
@@ -1842,6 +1849,7 @@ rest = Transform2D(1, 0, 0, 1, 0.6721945, 6.255087)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -270.0
+editor_settings/show_bone_gizmo = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/LegF/RN/CalfF/Foot" unique_id=1482153655]
 remote_path = NodePath("../../../../../../../../FCalf")
@@ -1864,7 +1872,7 @@ remote_path = NodePath("../../../../../UpperTorso")
 
 [node name="Head" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back" unique_id=1606197458]
 position = Vector2(0, -28)
-rotation = -0.023851203
+rotation = -0.023851212
 scale = Vector2(0.9998952, 0.9998952)
 rest = Transform2D(0.99978465, 0.015911827, -0.015911827, 0.99978465, 0, -28)
 auto_calculate_length_and_angle = false
@@ -1918,7 +1926,7 @@ remote_path = NodePath("../../../../../../BUpperArm")
 
 [node name="BFore" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back/BUarm" unique_id=2080187590]
 position = Vector2(1.3589859e-05, 23.000805)
-rotation = 0.043449853
+rotation = 0.04344985
 scale = Vector2(0.9999989, 0.9999989)
 rest = Transform2D(1.0000001, 0, 0, 1.0000001, 3.5762787e-07, 23.00082)
 metadata/_local_pose_override_enabled_ = true
@@ -1940,6 +1948,7 @@ remote_path = NodePath("../../../../../../../BForeArm")
 position = Vector2(5.329359, 17.282389)
 scale = Vector2(0.99984336, 0.99984336)
 rest = Transform2D(1, 0, 0, 1, 5.329359, 17.282389)
+editor_settings/show_bone_gizmo = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Tail" unique_id=1422254507]
 remote_path = NodePath("../../../../../Tail")
@@ -1971,6 +1980,7 @@ shape = SubResource("CapsuleShape2D_aycd3")
 metadata/triggerLandmine = true
 
 [node name="RapierArea2D" type="Area2D" parent="Ragdoll/GBHB" unique_id=969823209]
+visible = false
 script = ExtResource("15_qcy87")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
 
