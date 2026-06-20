@@ -45,6 +45,7 @@ func fix():
 
 
 func createBorders():
+	taskbarPos = clampi(taskbarPos, 0, screenHeight)
 	$Floor.position = Vector2(screenWidth / 2, taskbarPos)
 	$SideL.position = Vector2(0, screenHeight / 2)
 	$SideR.position = Vector2(screenWidth, screenHeight / 2)
