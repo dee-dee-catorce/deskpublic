@@ -39,7 +39,9 @@ func _ready():
 	if FileAccess.file_exists(savePath):
 		data = loadjson(savePath)
 		var templateData = loadjson(template)
-		fixMissing(data, templateData)
+		fixMissing(data, templateData) 
+		# template does not include any expies so if persistance is enabled, we don't spawn the default.
+		# below adds a single expie if there are none defined in save.json
 		if data["save"]["expies"] == {}: data["save"]["expies"] = {"Default": 1} # force a default expie to spawn if no expie data on load. avoids crash
 
 	else:
