@@ -1,6 +1,5 @@
 ---
 name: Issue readme
-about: To prevent vague issue reports or bugs made via user error
 
 
 ---
