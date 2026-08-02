@@ -4,7 +4,9 @@ extends Node
 @onready var faceSys = $faceHandler
 @onready var moodSys = $moodHandler
 @onready var moveSys = $movementHandler
+@onready var sleepHandler = $movementHandler
 @onready var dialogueSys = $dialogue
+@onready var hunger = $dialogue
 
 @onready var data = gbData.text.diaGlobal
 
@@ -29,6 +31,12 @@ var wander := true
 ##Is the node currently in shocked mode.
 var shocked := false
 
+var isSleeping := false
+##Is the node currently in hunryg mode.
+var isHungry := false
+
+##Is the node currently in shocked mode.
+var isSad := false
 #might be worth it change most of the timers in this script with variables
 #so we can avoid magic numbers
 ##How long does it take the node to get up after being ragdolled.
@@ -36,6 +44,7 @@ var getUpTimer := 5.0
 ##How long does it take for the node to send dialogue after getting up.
 var getUpTimerMsg := 3.0
 
+var tick: float = 5.0
 
 func _ready() -> void:
 	# Persistence logging:
@@ -54,6 +63,11 @@ func _ready() -> void:
 	tempRagdoll()
 	wandering()
 	passivetalk()
+
+func checker():
+	await get_tree().create_timer(tick).timeout
+	pass
+
 
 func _physics_process(delta: float) -> void:
 	if not ragdolled and (abs(moveSys.rigid.linear_velocity.x) > moveSys.ragdollspeed or beingDragged):
@@ -81,6 +95,7 @@ func shock():
 	faceSys.setEmotion("normal")
 
 	shocked = false
+
 func tempRagdoll() -> void:
 	moveSys.ragdoll(false)
 	ragdolled = true
@@ -125,58 +140,39 @@ func tempRagdoll() -> void:
 	pet_count = 0
 	pet_timer.stop()
 
-func panicAttack():
-	if moodSys.tick > -4.5 or moodSys.mood >= 20.0 or settings.lobotomize:
-		return
-
-	faceSys.setEmotion("sad")
-	moveSys.dir = 1 if moveSys.rigid.global_position.x < float(GlobalVariable.screenWidth / 2) else -1
-
-	dialogueSys.pool = data.get("VeryLowPassive", [])
-	dialogueSys.speedMod = 1.3
-	dialogueSys.send()
-	
-
-	await get_tree().create_timer(3).timeout
-
-	moveSys.dir = 0
-	dialogueSys.pool = data.get("panic", [])
-	dialogueSys.speedMod = 1.3
-	dialogueSys.send()
-	await get_tree().create_timer(1).timeout
-	moveSys.animplay.play("dance")
-
-	await get_tree().create_timer(2).timeout
 
 func passivetalk():
 	while true:
 		if !gbData.settings["mutePassive"]:
-			await get_tree().create_timer(randf_range(24.5, 100.5)).timeout
+			await get_tree().create_timer(randf_range(1.5, 20.5)).timeout
 			if not beingDragged:
-				dialogueSys.pool = data.passive
+				dialogueSys.pool = data.lastmoments
 				dialogueSys.speedMod = 1.3
 				dialogueSys.send()
 		else:
 			await get_tree().create_timer(5.0).timeout
 
 func wandering():
-	while wander:
-		await get_tree().create_timer(randi_range(4, 8)).timeout
+	while get_tree():
+		if wander:
+			await get_tree().create_timer(randi_range(4, 8)).timeout
 
-		var center = GlobalVariable.screenWidth / 2.0
-		var ex = moveSys.rigid.global_position.x
-		var offset = ex - center
-		var th = GlobalVariable.screenWidth * 0.25
+			var center = GlobalVariable.screenWidth / 2.0
+			var ex = moveSys.rigid.global_position.x
+			var offset = ex - center
+			var th = GlobalVariable.screenWidth * 0.25
 
-		if offset > th:
-			moveSys.dir = -1
-		elif offset < -th:
-			moveSys.dir = 1
+			if offset > th:
+				moveSys.dir = -1
+			elif offset < -th:
+				moveSys.dir = 1
+			else:
+				moveSys.dir = randi_range(-1, 1)
+
+			await get_tree().create_timer(randf_range(.5, 2.0)).timeout
+			moveSys.dir = 0
 		else:
-			moveSys.dir = randi_range(-1, 1)
-
-		await get_tree().create_timer(randf_range(.5, 2.0)).timeout
-		moveSys.dir = 0
+			await get_tree().create_timer(randi_range(4, 8)).timeout
 
 func petLimb(limb: RigidBody2D):
 	AudioManager.play_sfx(AudioManager.thudwoosh)
@@ -212,3 +208,16 @@ func petLimb(limb: RigidBody2D):
 		
 	await get_tree().create_timer(5).timeout
 	faceSys.setEmotion("normal")
+
+func struggle():
+	while get_tree():
+		randomize()
+		await get_tree().create_timer(.1).timeout
+		if ragdolled:
+			var random_torque = randf_range(-1500.0, 1500.0)
+			moveSys.rigidtorso.apply_torque(random_torque)
+
+			var random_force = Vector2(randf_range(-1, 1), randf_range(-1, -2.0))
+			moveSys.rigidtorso.apply_central_impulse(random_force * .3)
+
+			await get_tree().create_timer(randf_range(.5, 1.2), false).timeout

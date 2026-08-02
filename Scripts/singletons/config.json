@@ -19,10 +19,11 @@
 	"barkSoundEnabled": true,
 	"pettingSoundEnabled": true,
 	"messageEnabled": true,
+	"hungerEnabled": true,
+	"sleepEnabled": true,
 	"normalize": 1.0,
 	"outdated": false,
 	"placeHodler": true,
 	"soundVolume": 1.0,
-
 	"defaultSkin": "Body"
 }

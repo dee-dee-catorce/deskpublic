@@ -17,11 +17,6 @@ var minmood = gbData.settings["minMood"]
 @onready
 var maxmood = gbData.settings["maxMood"]
 
-func _ready() -> void:
-	#initializeloops and signals
-	moodLoop()
-
-
 #make sure things are updated
 
 func _sync_mood() -> void:
@@ -32,11 +27,10 @@ func _sync_mood() -> void:
 
 
 #main mood loop
-func moodLoop() -> void:
-	while true:
+func moodCheck() -> void:
 		await get_tree().create_timer(10).timeout
 		if gbData.settings.get("invincible", false):
-			continue
+			return
 
 		mood += tempCalc()
 		#showly neutralize in lerp but im going to be honesst they basically do nothing

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://enceuim30717" path="res://assets/Body/experimentUpTorso.png" id="10_7eycm"]
 [ext_resource type="Texture2D" uid="uid://bjta7yk5pd8fh" path="res://assets/Body/experimentHeadBack.png" id="11_yydv3"]
 [ext_resource type="Texture2D" uid="uid://b0630p6hqbjso" path="res://assets/Body/experimentEyeOpen.png" id="12_li2bu"]
+[ext_resource type="Texture2D" uid="uid://n47ec6647uk6" path="res://assets/objectSpr/z.png" id="13_3pkli"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="13_re48v"]
 [ext_resource type="Script" uid="uid://clgwtw4irp0fp" path="res://addons/soupik/modifications/soup_modification.gd" id="14_4p4nk"]
 [ext_resource type="Script" uid="uid://bnso0mph1tb11" path="res://addons/soupik/modifications/soup_two_bone_ik.gd" id="15_6ydbj"]
@@ -23,7 +24,9 @@
 [ext_resource type="Script" uid="uid://da7sjmfsmufll" path="res://Scripts/impo/dialogueManager.gd" id="19_xvb24"]
 [ext_resource type="Script" uid="uid://pg0ohwt8ba8h" path="res://Scripts/impo/faceSys.gd" id="20_l2ler"]
 [ext_resource type="Theme" uid="uid://byc077a5abgew" path="res://assets/themes/dialogue.tres" id="21_57y4j"]
+[ext_resource type="Script" uid="uid://jnsq0pscs6et" path="res://Scripts/impo/sleep_manager.gd" id="22_dvaus"]
 [ext_resource type="Script" uid="uid://bhc642h64r7ev" path="res://Scripts/impo/moodSys.gd" id="22_un334"]
+[ext_resource type="Script" uid="uid://bvssnx7cofbpp" path="res://Scripts/impo/hunger_handler.gd" id="26_84wtd"]
 
 [sub_resource type="Animation" id="Animation_d7061"]
 length = 0.001
@@ -1725,6 +1728,9 @@ height = 10.0
 radius = 3.0
 height = 10.0
 
+[sub_resource type="Gradient" id="Gradient_6mwry"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_73j8h"]
 radius = 5.0990195
 
@@ -1757,7 +1763,7 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 position = Vector2(-1, -20)
 rotation = -1.1779506e-05
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -1777,13 +1783,12 @@ position = Vector2(-0.33961427, -15.576893)
 rotation = 0.31542706
 scale = Vector2(0.99999976, 0.99999976)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FThighSprite" type="Sprite2D" parent="RigidBodies/BThigh" unique_id=926073898]
-modulate = Color(0.6706895, 0.6706895, 0.6706895, 1)
 texture_filter = 1
 position = Vector2(0.018392444, -0.019227982)
 rotation = -0.19698195
@@ -1801,13 +1806,12 @@ position = Vector2(-5.2266655, -9.810148)
 rotation = -0.007383569
 scale = Vector2(0.9999991, 0.9999991)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FCrusSprite" type="Sprite2D" parent="RigidBodies/BCrus" unique_id=1867546844]
-modulate = Color(0.6706895, 0.6706895, 0.6706895, 1)
 texture_filter = 1
 position = Vector2(0.47213244, -0.41910458)
 rotation = 1.1059602
@@ -1824,13 +1828,12 @@ position = Vector2(-4.867566, -4.6748066)
 rotation = 0.43346316
 scale = Vector2(0.9999991, 0.9999991)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FFootSprite" type="Sprite2D" parent="RigidBodies/BFoot" unique_id=1542914072]
-modulate = Color(0.6706895, 0.6706895, 0.6706895, 1)
 texture_filter = 1
 position = Vector2(-0.8502667, 0.7949393)
 rotation = -0.7258136
@@ -1847,7 +1850,7 @@ position = Vector2(-0.806737, -30.25633)
 rotation = -0.06447743
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -1867,13 +1870,12 @@ position = Vector2(-0.3557899, -23.270872)
 rotation = -0.06447744
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FDownArmSprite" type="Sprite2D" parent="RigidBodies/BDownArm" unique_id=54800625]
-modulate = Color(0.6706895, 0.6706895, 0.6706895, 1)
 texture_filter = 1
 position = Vector2(0, 1)
 texture = ExtResource("7_2dgiw")
@@ -1887,13 +1889,12 @@ position = Vector2(0.15982679, -15.283652)
 rotation = -0.06447744
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="FHandSprite" type="Sprite2D" parent="RigidBodies/BHand" unique_id=952158193]
-modulate = Color(0.6706895, 0.6706895, 0.6706895, 1)
 texture_filter = 1
 texture = ExtResource("8_garej")
 
@@ -1906,7 +1907,7 @@ shape = SubResource("CapsuleShape2D_1mc2w")
 position = Vector2(-7.1525574e-07, -22)
 rotation = -1.1779506e-05
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -1924,7 +1925,7 @@ shape = SubResource("CapsuleShape2D_k8iha")
 position = Vector2(-0.49999624, -30.000072)
 rotation = -1.1779506e-05
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -1938,41 +1939,12 @@ texture = ExtResource("10_7eycm")
 visible = false
 shape = SubResource("CapsuleShape2D_7p3rp")
 
-[node name="Head" type="RigidBody2D" parent="RigidBodies" unique_id=1596314125]
-position = Vector2(-0.19712174, -42.454872)
-rotation = 0.029473484
-collision_layer = 8
-mass = 0.001
-gravity_scale = 0.8
-script = ExtResource("1_6y4sq")
-metadata/_custom_type_script = "uid://unwhnooi7g2c"
-
-[node name="HeadSprite" type="Sprite2D" parent="RigidBodies/Head" unique_id=305709920]
-texture_filter = 1
-position = Vector2(0.014736176, 1.4998283)
-texture = ExtResource("11_yydv3")
-
-[node name="EyeSprite" type="Sprite2D" parent="RigidBodies/Head" unique_id=1435153722]
-texture_filter = 1
-position = Vector2(0.08049965, 1.534617)
-texture = ExtResource("12_li2bu")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RigidBodies/Head/EyeSprite" unique_id=1903130326]
-remote_path = NodePath("../../../../textParent")
-update_rotation = false
-update_scale = false
-
-[node name="collision" type="CollisionShape2D" parent="RigidBodies/Head" unique_id=756185136]
-visible = false
-position = Vector2(0.058938626, 1.9993173)
-shape = SubResource("CircleShape2D_73j8h")
-
 [node name="FThigh" type="RigidBody2D" parent="RigidBodies" unique_id=69657827]
 position = Vector2(0.17328954, -15.68452)
 rotation = 0.19817327
 scale = Vector2(0.99999946, 0.99999946)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -1995,7 +1967,7 @@ position = Vector2(-4.484634, -10.594863)
 rotation = 0.11549688
 scale = Vector2(0.9999991, 0.9999991)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -2017,7 +1989,7 @@ position = Vector2(-4.7586765, -5.467263)
 rotation = 0.55634356
 scale = Vector2(0.9999991, 0.9999991)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -2034,12 +2006,79 @@ position = Vector2(-0.10552764, 0.10501099)
 rotation = -0.42937642
 shape = SubResource("CapsuleShape2D_5ljcd")
 
+[node name="Head" type="RigidBody2D" parent="RigidBodies" unique_id=1596314125]
+position = Vector2(-0.19712174, -42.454872)
+rotation = 0.029473484
+collision_layer = 8
+mass = 0.5
+gravity_scale = 0.8
+script = ExtResource("1_6y4sq")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="HeadSprite" type="Sprite2D" parent="RigidBodies/Head" unique_id=305709920]
+texture_filter = 1
+position = Vector2(0.014736176, 1.4998283)
+texture = ExtResource("11_yydv3")
+
+[node name="EyeSprite" type="Sprite2D" parent="RigidBodies/Head" unique_id=1435153722]
+texture_filter = 1
+position = Vector2(0.08049965, 1.534617)
+texture = ExtResource("12_li2bu")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RigidBodies/Head/EyeSprite" unique_id=1903130326]
+remote_path = NodePath("../../../../textParent")
+update_rotation = false
+update_scale = false
+
+[node name="Blood" type="CPUParticles2D" parent="RigidBodies/Head" unique_id=33384588]
+position = Vector2(0.41672534, 7.445825)
+rotation = 0.9389641
+emitting = false
+amount = 20
+explosiveness = 0.65
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 30.75
+initial_velocity_min = 4.16
+initial_velocity_max = 29.17
+angle_min = -90.0
+angle_max = 162.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.91201603, 0.80403787, 2.695322e-06, 1)
+color_ramp = SubResource("Gradient_6mwry")
+
+[node name="Sleep" type="CPUParticles2D" parent="RigidBodies/Head" unique_id=784339535]
+position = Vector2(0.41672534, 7.445825)
+rotation = 0.9389641
+emitting = false
+amount = 2
+texture = ExtResource("13_3pkli")
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 30.75
+gravity = Vector2(0, -90)
+initial_velocity_min = 4.16
+initial_velocity_max = 29.17
+angular_velocity_min = -66.0
+angular_velocity_max = 66.0
+scale_amount_min = 0.4
+scale_amount_max = 0.7
+color = Color(0, 0, 0, 0.7058824)
+color_ramp = SubResource("Gradient_6mwry")
+anim_offset_max = 0.2042
+
+[node name="collision" type="CollisionShape2D" parent="RigidBodies/Head" unique_id=756185136]
+visible = false
+position = Vector2(0.058938626, 1.9993173)
+shape = SubResource("CircleShape2D_73j8h")
+
 [node name="FUpArmSprite" type="RigidBody2D" parent="RigidBodies" unique_id=552296471]
 position = Vector2(-0.5102578, -30.29035)
 rotation = -0.1639935
 scale = Vector2(0.9999977, 0.9999977)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -2058,7 +2097,7 @@ position = Vector2(0.63247436, -23.384272)
 rotation = -0.16399358
 scale = Vector2(0.99999756, 0.99999756)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -2078,7 +2117,7 @@ position = Vector2(1.9390842, -15.487804)
 rotation = -0.16399358
 scale = Vector2(0.99999756, 0.99999756)
 collision_layer = 8
-mass = 0.001
+mass = 0.5
 gravity_scale = 0.8
 script = ExtResource("1_6y4sq")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -2103,7 +2142,6 @@ shape = SubResource("CapsuleShape2D_hln7x")
 rotation = -1.1779506e-05
 
 [node name="PinJoints" type="Node2D" parent="RigidBodies/skeleton/Skeleton2D" unique_id=1224169096]
-visible = false
 rotation = 1.1779506e-05
 
 [node name="Back" type="PinJoint2D" parent="RigidBodies/skeleton/Skeleton2D/PinJoints" unique_id=1049038305]
@@ -2141,7 +2179,7 @@ ik_damping = 0.0
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="HAND" type="PinJoint2D" parent="RigidBodies/skeleton/Skeleton2D/PinJoints/Back/FArm/LFArm" unique_id=932216739]
-position = Vector2(0.039981052, 8.380537)
+position = Vector2(0.039981008, 8.380537)
 node_a = NodePath("../../../../../../../FDownArm")
 node_b = NodePath("../../../../../../../FFHand")
 angular_limit_enabled = true
@@ -2175,7 +2213,7 @@ ik_damping = 0.0
 metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
 
 [node name="HAND" type="PinJoint2D" parent="RigidBodies/skeleton/Skeleton2D/PinJoints/Back/BArm/BDArm" unique_id=1162834353]
-position = Vector2(0.039981052, 8.380537)
+position = Vector2(0.039981008, 8.380537)
 node_a = NodePath("../../../../../../../BDownArm")
 node_b = NodePath("../../../../../../../BHand")
 angular_limit_enabled = true
@@ -2621,6 +2659,9 @@ script = ExtResource("18_8de8m")
 script = ExtResource("17_67p0r")
 bodyRoot = NodePath("../../RigidBodies")
 
+[node name="sleepManager" type="Node" parent="behavior" unique_id=1541872715]
+script = ExtResource("22_dvaus")
+
 [node name="movementHandler" type="Node" parent="behavior" unique_id=1365880428 node_paths=PackedStringArray("skeleton", "rigid", "rigidtorso", "animplay", "eyes", "tail", "skelparent", "headIk", "headIkControl", "floorRay", "wallDetect", "heightDetect", "defheadnose")]
 script = ExtResource("18_ry0af")
 skeleton = NodePath("../../RigidBodies/skeleton/Skeleton2D")
@@ -2655,6 +2696,9 @@ fasdfasdfasddfas = NodePath("../movementHandler")
 
 [node name="dialogueTimer" type="Timer" parent="behavior/dialogue" unique_id=1048411103]
 one_shot = true
+
+[node name="hungerHandler" type="Node" parent="behavior" unique_id=2070105680]
+script = ExtResource("26_84wtd")
 
 [node name="petTimer" type="Timer" parent="behavior" unique_id=1934989107]
 one_shot = true

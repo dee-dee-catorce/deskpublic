@@ -21,6 +21,7 @@ shader_parameter/offset = Vector2(0, 0)
 shader_parameter/max_or_add = false
 
 [node name="Body" type="RigidBody2D" unique_id=371602465]
+mass = 6.0
 metadata/object = false
 
 [node name="Detector" type="Area2D" parent="." unique_id=1866926148]

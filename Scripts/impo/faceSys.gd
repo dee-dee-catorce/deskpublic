@@ -15,7 +15,9 @@ var blinking := false
 var eyes = {
 	"normal": {"open": "experimentEyeOpen.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeLookBack.png"},
 	"sad": {"open": "experimentEyeSad.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeSadBack.png"},
-	"scared": {"open": "experimentEyeScared.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeScaredBack.png"},
+	"sleep": {"open": "experimentEyeClosed.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeClosed.png"},
+	"tired": {"open": "experimentEyeHalfClosed.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeClosed.png"},
+	"scared": {"open": "experimentEyeScared.png", "closed": "experimentEyeClosed.png", "back": "experimentEyeHalfClosedBack.png"},
 	"panic": {"open": "experimentEyePanic.png", "closed": "experimentEyePanic.png", "back": "experimentEyePanic.png"},
 	"happy": {"open": "experimentEyeHappy.png", "closed": "experimentEyeHappy.png", "back": "experimentEyeHappy.png"},
 }
