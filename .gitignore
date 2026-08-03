@@ -9,4 +9,7 @@ nuget.config
 *.tmp
 
 # Build output
-Release/
+[Rr]elease/
+[Dd]ebug/
+[Dd]esk[Ss]aw.exe
+[Dd]esk[Ss]aw
