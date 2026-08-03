@@ -46,7 +46,7 @@ display_server/driver.linuxbsd="x11"
 
 [dotnet]
 
-project/assembly_name="StartingOver"
+project/assembly_name="DeskSaw"
 
 [editor_plugins]
 
