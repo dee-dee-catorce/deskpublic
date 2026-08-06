@@ -32,7 +32,7 @@ var wander := true
 ##Is the node currently in shocked mode.
 var shocked := false
 
-#oh ok
+## fguiosdfgiojsdgfo[jdfgio[jsdfgfjsdfgjbncvmbcvncv]]
 var petId := ""
 
 var isTired := false
@@ -61,16 +61,20 @@ enum emotionz {
 
 var currentEmotion = emotionz.normal
 func _ready() -> void:
-
+	# Figure out which save slot this pet owns. The spawner (commands.gd /
+	# skinSpawner.gd / main.gd's persistence loader) normally assigns petId
+	# before this instance is added to the tree; if nothing did, this is a
+	# brand-new pet, so allocate it a fresh save entry now.
 	if petId == "":
-		var skinName = GlobalVariable.userSkinPath.substr(0, len(GlobalVariable.userSkinPath) - 1) 
-		skinName = skinName.substr(skinName.rfind("/") + 1) #
+		var skinName = GlobalVariable.userSkinPath.substr(0, len(GlobalVariable.userSkinPath) - 1) # remove "/" at end
+		skinName = skinName.substr(skinName.rfind("/") + 1) # remove first half of path, getting just name
 		petId = gbData.addPet(skinName)
 
 	get_parent().get_parent().set_meta("itemName", petId)
 	
-
-
+	# Set debug text to Node's ID:
+	#$"../textParent/DebugText".text = "Test"
+	#print(get_parent().get_parent().get_children().find(self))
 	connect("toggleDebugText", _on_debugToggle_signal)
 	
 	faceSys.setEmotion("default")
@@ -80,7 +84,9 @@ func _ready() -> void:
 	moveSys.rigid.global_position.x = GlobalVariable.screenWidth / 2
 	moveSys.rigid.global_position.y = - GlobalVariable.screenHeight * 2
 
-
+	# moodSys/hungerHandler/sleepHandler each default to sensible template
+	# values on their own; now that we know which "saw" entry is ours, load
+	# this pet's actual saved stats into them.
 	moodSys.loadFromSave(petId)
 	hungerHandler.loadFromSave(petId)
 	sleepHandler.loadFromSave(petId)
@@ -297,7 +303,7 @@ func petLimb(limb: RigidBody2D):
 	await get_tree().create_timer(5).timeout
 	faceSys.setEmotion("normal")
 
-#what does this even do tho
+#ok this didnt really do anything before so im gonna edit it
 func _on_debugToggle_signal():
 	if $"../textParent/DebugText".text == "":
 		$"../textParent/DebugText".text = "Test"

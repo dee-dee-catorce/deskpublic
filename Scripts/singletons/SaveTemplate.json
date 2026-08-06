@@ -1,6 +1,5 @@
 {
 	"saw": {},
-	"loaded": {},
 	"sawTemplate": {
 		"skin": "Default",
 		"nickname": "",
@@ -15,7 +14,7 @@
 		"dead": false,
 		"dangerVal": {}
 	},
-	"totalPets": 1.0,
+	"nextPetId": 1.0,
 	"everPresentAcrossSaves": {
 		"PetsKilled": 0.0
 	}

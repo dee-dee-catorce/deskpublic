@@ -29,18 +29,23 @@ func _cust(cmd: String):
 func openskinfold():
 	OS.shell_open(ProjectSettings.globalize_path("user://skin"))
 func _setmood(val: float):
-	gbData.data.save.mood = val
-	gbData.savetodisk("user://SAVE.json", gbData.data)
+	Console.warning("This command has temporarily been disabled. You can influence mood by petting them")
 	return val
 
 func reload():
 	get_tree().change_scene_to_file("res://scenes/newmain.tscn")
 
 
-func spawnExpie():
+func spawnExpie(petId: String = ""):
 	var path = "res://scenes/sawianBase.tscn"
 	var scene = load(path)
 	var instance = scene.instantiate()
+
+	if petId == "":
+		var skinName = GlobalVariable.userSkinPath.substr(0, len(GlobalVariable.userSkinPath) - 1) 
+		skinName = skinName.substr(skinName.rfind("/") + 1) 
+		petId = gbData.addPet(skinName)
+	instance.get_node("behavior").petId = petId 
 
 	var wrapper = Node2D.new()
 	wrapper.scale = Vector2(4.0, 4.0)
@@ -54,18 +59,6 @@ func spawnExpie():
 	instance.global_position.x = GlobalVariable.screenWidth / 2
 	instance.global_position.y = - GlobalVariable.screenHeight * 2
 	wrapper.set_meta("Category", "entity")
-	var sawId = instance.get_node_or_null("behavior")
-
-	if sawId:
-		print(sawId.petId)
-		
-		
-		if not gbData.data.has("loaded"):
-			gbData.data["loaded"] = []
-			
-		
-		gbData.data["loaded"].append(sawId.petId)
-
 
 
 func _additem(item: String = "crate"):
@@ -93,19 +86,16 @@ func clearObj(category: String = "object"):
 	
 
 	for child in get_tree().current_scene.get_children():
-		var pet = gbData.data["saw"]
 		if not exclude.has(child.name):
 			if category == child.get_meta("Category") or category == child.get_meta("itemName"):
-#temporarily make it like this i swear ill make it fixed later
-			#	if gbData.data["save"]["expies"].has(child.get_meta("itemName")): # check if deleting an expie
-					#gbData.temp["expies"].erase(category)
-				#	gbData.data["save"]["expies"].erase(category) # remove from persistence data if there
-				pet = {}
+				if gbData.data["saw"].has(child.get_meta("itemName")): #check if deleting a pet
+					gbData.removePet(child.get_meta("itemName"))
 				await get_tree().create_timer(.05).timeout
 				child.queue_free()
 
 	if category == "entity":
-		print("cleared expie persistence data")
+		gbData.data["saw"] = {}
+		print("cleared pet persistence data")
 
 
 func nukesettings():

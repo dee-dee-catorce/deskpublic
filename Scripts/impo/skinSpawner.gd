@@ -36,10 +36,16 @@ func refreshDisplayExpie():
 	reloadDisplayExpie()
 	SkinNameN.text = SkinFolders[skinIndx] + ":"
 
-func spawnExpie():
+func spawnExpie(petId: String = ""):
 	var path = "res://scenes/sawianBase.tscn"
 	var scene = load(path)
 	var instance = scene.instantiate()
+
+	if petId == "":
+		var skinName = GlobalVariable.userSkinPath.substr(0, len(GlobalVariable.userSkinPath) - 1)
+		skinName = skinName.substr(skinName.rfind("/") + 1)
+		petId = gbData.addPet(skinName)
+	instance.get_node("behavior").petId = petId
 
 	var wrapper = Node2D.new()
 	wrapper.scale = Vector2(4.0, 4.0)
@@ -50,9 +56,6 @@ func spawnExpie():
 	wrapper.add_child(instance)
 	instance.owner = get_tree().current_scene
 
-	instance.global_position.x = GlobalVariable.screenWidth / 2
-	instance.global_position.y = - GlobalVariable.screenHeight * 2
-	wrapper.set_meta("Category", "entity")
 	"""
 	# im totally not upset that it took me 20 minutes to fuigye0=fuwerauoasdfg to figure out that this was running seperately
 	from the spawn command.
@@ -63,16 +66,10 @@ func spawnExpie():
 
 	
 	"""
-	var sawId = instance.get_node_or_null("behavior")
-	if sawId:
-		print(sawId.petId)
-		
-		
-		if not gbData.data.has("loaded"):
-			gbData.data["loaded"] = []
-			
-		
-		gbData.data["loaded"].append(sawId.petId)
+
+	instance.global_position.x = GlobalVariable.screenWidth / 2
+	instance.global_position.y = - GlobalVariable.screenHeight * 2
+	wrapper.set_meta("Category", "entity")
 
 func reloadDisplayExpie():
 	for child in get_children():

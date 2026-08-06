@@ -6,7 +6,7 @@ extends Node
 var settings = gbData.settings
 @export var list: Control
 
-var saw
+
 @export var partent: Control
 var sMAP = {
 	"deathBool": {"key": "invincible", "type": "toggle"},
@@ -35,7 +35,7 @@ func _ready() -> void:
 		#print("Settings ", settings)
 		pass
 	_initset()
-	saw = gbData.data["saw"]
+	
 	assign_tab_meta_to_leftovers() # does what it says, so if a setting doesnt have 'Tab' meta, its created and "General" is assgined
 	for child in $VSplitContainer/ScrollContainer/ItemList.get_children(): # apply meta tag to say that a setting is not visible by default. e.i. disabled settings
 		if !child.visible:
@@ -93,11 +93,8 @@ func _saveSettings() -> void:
 
 
 func _on_expie_persistence_pressed(): # special case, as if disabled we want to wipe everything
-	if gbData.settings.expiePersistence:
-		gbData.data["save"]["loaded"] = gbData.temp["expies"]
-	else:
-		gbData.temp["expies"] = {}
-		saw = {}
+	if not gbData.settings.expiePersistence:
+		gbData.data["saw"] = {}
 
 
 ### Tab handling:

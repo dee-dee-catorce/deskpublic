@@ -13,7 +13,6 @@ func loadFromSave(id: String) -> void:
 	hungry = pet.get("hunger", hungry)
 
 
-
 func hungercheck():
 		if gbData.settings["hungerEnabled"]:
 			#await get_tree().create_timer(5).timeout

@@ -40,6 +40,6 @@ func _on_yes_pressed():
 func _on_no_pressed():
 	self.visible = false
 	$ClickArea.enabled = self.visible
-	gbData.temp["expies"] = {"Default": 1}
-	gbData.data["save"]["expies"] = {"Default": 1}
+	gbData.data["saw"] = {}
+	gbData.addPet("Default")
 	GlobalVariable.persistenceWarning.emit()

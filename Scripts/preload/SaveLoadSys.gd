@@ -20,13 +20,14 @@ var template = "res://Scripts/singletons/SaveTemplate.json"
 
 # DO NOT FORGET TO DISABLE THIS WHENBUILDING 
 var devMode = true
-
+#turns out you can literally make a custom project setting that does something like this
+#but im too  in too deep to go back now
 
 const savePath = "user://SAVE.json"
 const transPath = "user://TRANSLATION.json"
 const conPath = "user://CONFIG.json"
 const skinfilepath = "user://skin"
-var temp = {"expies": {}}
+
 
 func _ready():
 	# Load save file
@@ -82,9 +83,13 @@ func newsave():
 		return
 
 
+	var keepAcrossSaves = data.get("everPresentAcrossSaves", null)
+
 	#set data json to template
 	data = loadjson(template).duplicate(true)
 
+	if keepAcrossSaves != null:
+		data["everPresentAcrossSaves"] = keepAcrossSaves
 	#apparentally that function does nothing and hasnt done anything for a while??? or people are just lysing to me.
 	#randomize()
 
@@ -106,16 +111,10 @@ func addPet(skin: String = "Default") -> String:
 	data["saw"][newId]["skin"] = skin
 
 
-	#
-	data["saw"][newId]["mood"] += randi_range(-5, 5)
-	data["saw"][newId]["hunger"] -= randi_range(1, 5)
-	data["saw"][newId]["trust"] += randi_range(-10, 3)
-
 	savetodisk(savePath, data)
 	return newId
 
 
-#delete
 func removePet(id: String) -> void:
 	if not data.get("saw", {}).has(id):
 		return
@@ -169,7 +168,7 @@ If your skin is only on the head, try restarting the app. That usually fixes it.
 	var old_files: PackedStringArray = DirAccess.get_files_at(folder_to_copy)
 	for f: String in old_files:
 		DirAccess.copy_absolute(folder_to_copy + "/" + f, new_dir_path + "/" + f)
-	var _old_directories: PackedStringArray = DirAccess.get_directories_at(folder_to_copy)
+	#var old_directories: PackedStringArray = DirAccess.get_directories_at(folder_to_copy)
 
 
 func loadSkin():
