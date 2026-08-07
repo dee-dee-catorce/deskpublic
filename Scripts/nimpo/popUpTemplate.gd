@@ -5,7 +5,7 @@ var dragging = false
 var first = true
 
 func _ready():
-
+	GlobalVariable.persistenceWarning.connect(signalRecieved)
 	$ClickArea.enabled = self.visible
 	
 	position = Vector2i(GlobalVariable.screenWidth / 4, GlobalVariable.screenHeight / 4)
@@ -24,7 +24,12 @@ func _downDrag():
 func _upDrag():
 	dragging = false
 
-
+func signalRecieved():
+	if first:
+		first = false
+		self.visible = true
+		$ClickArea.enabled = self.visible
+		print("Showing persistence warning (concerning number of expies)")
 
 
 func _on_yes_pressed():

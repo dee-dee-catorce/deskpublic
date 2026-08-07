@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bccf5shxpyr5a"]
 
-[ext_resource type="Script" uid="uid://cwx8tm7xk2yyg" path="res://Scripts/nimpo/warningWindowHandler.gd" id="1_sb7b8"]
+[ext_resource type="Script" uid="uid://bu1nlyxwv0ll8" path="res://Scripts/nimpo/popupMenu.gd" id="1_sb7b8"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://assets/themes/MinimalUI.tres" id="2_35njl"]
 [ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="3_enrr1"]
 
-[node name="PersistenceWarningPopup" type="Control" unique_id=1575931891]
+[node name="Popup" type="Control" unique_id=1575931891]
 visible = false
 layout_mode = 3
 anchor_left = 0.4
@@ -47,9 +47,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.7
 grow_horizontal = 2
-text = "WARNING!
-You have more than 20 expies in you saved persistence data!
-Are you sure what your doing is worth it?"
+bbcode_enabled = true
+text = "Text
+"
 fit_content = true
 
 [node name="YES" type="Button" parent="Main" unique_id=1326940879]
