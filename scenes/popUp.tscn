@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bccf5shxpyr5a"]
+
+[ext_resource type="Script" uid="uid://cwx8tm7xk2yyg" path="res://Scripts/nimpo/warningWindowHandler.gd" id="1_sb7b8"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://assets/themes/MinimalUI.tres" id="2_35njl"]
+[ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="3_enrr1"]
+
+[node name="PersistenceWarningPopup" type="Control" unique_id=1575931891]
+visible = false
+layout_mode = 3
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb7b8")
+
+[node name="Handle" type="Button" parent="." unique_id=769554152]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0017857143
+anchor_top = -0.1863354
+anchor_right = 1.0017858
+anchor_bottom = 0.0062111802
+offset_top = 5.9863358
+offset_bottom = 1.0322978
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_35njl")
+alignment = 0
+
+[node name="Main" type="ColorRect" parent="." unique_id=1109328576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_35njl")
+color = Color(0, 0, 0, 0.5372549)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main" unique_id=1438753526]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.7
+grow_horizontal = 2
+text = "WARNING!
+You have more than 20 expies in you saved persistence data!
+Are you sure what your doing is worth it?"
+fit_content = true
+
+[node name="YES" type="Button" parent="Main" unique_id=1326940879]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Yes.
+I know what im doing,
+spawn them expies"
+
+[node name="NO" type="Button" parent="Main" unique_id=695481625]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "NO!
+(reset saved persistence data)"
+
+[node name="ClickArea" type="Control" parent="." unique_id=1380769221]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.200012
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_enrr1")
+metadata/_custom_type_script = "uid://blg811jk2cjt4"
+
+[connection signal="button_down" from="Handle" to="." method="_downDrag"]
+[connection signal="button_up" from="Handle" to="." method="_upDrag"]
+[connection signal="pressed" from="Main/YES" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Main/NO" to="." method="_on_no_pressed"]

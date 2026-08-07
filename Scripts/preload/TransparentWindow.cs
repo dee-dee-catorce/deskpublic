@@ -38,6 +38,8 @@ public partial class TransparentWindow : Node
             SetWindowLong(_hWnd, GwlExStyle, WsExLayered);
 
             SetClickThrough(true);
+            GetWindow().Transparent = true;
+            GetWindow().TransparentBg = true;
         }
         else
         {
