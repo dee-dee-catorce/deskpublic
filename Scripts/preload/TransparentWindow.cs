@@ -1,7 +1,9 @@
 // Remember to include System and System.Runtime.InteropServices
-
-
 // thank you ZeadenTheBirb for adding linux support to this
+
+// and im                  also here
+//                                   - Baba
+
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -60,6 +62,7 @@ public partial class TransparentWindow : Node
 
     private bool _isWindows;
     private bool _isX11;
+    private bool _isWayland;
     private bool _xShapeAvailable;
     private IntPtr _xDisplay = IntPtr.Zero;
     private nuint _xWindow;
@@ -71,6 +74,7 @@ public partial class TransparentWindow : Node
     {
         _isWindows = OperatingSystem.IsWindows();
         _isX11 = OperatingSystem.IsLinux() && DisplayServer.GetName() == "X11";
+        _isWayland = OperatingSystem.IsLinux() && DisplayServer.GetName() == "Wayland";
 
         GetWindow().Transparent = true;
         GetWindow().TransparentBg = true;
@@ -92,21 +96,49 @@ public partial class TransparentWindow : Node
             return;
         }
 
-        GetWindow().MousePassthrough = true;
-        Engine.MaxFps = 45;
+        if (_isWayland)
+        {
+            Engine.MaxFps = 45;
+            return;
+        }
     }
 
-    public override void _Process(double _delta)
+    public override void _Process(double delta)
     {
-        if (UsesInputRegions() && _inputRectsDirty)
+        if (_inputRectsDirty)
         {
-            ApplyX11InputRegion();
+            if (_isX11 && _xShapeAvailable)
+            {
+                ApplyX11InputRegion();
+            }
+            else if (_isWayland)
+            {
+                ApplyWaylandInputRegions();
+            }
         }
     }
 
     public bool UsesInputRegions()
     {
-        return _isX11 && _xShapeAvailable;
+        return (_isX11 && _xShapeAvailable) || _isWayland;
+    }
+
+    public void ApplyWaylandInputRegions()
+    {
+        List<Vector2> polygonPoints = new List<Vector2>();
+
+        foreach (Rect2I rect in _inputRects.Values)
+        {
+            // Build 4-point quads for C++ to parse as rectangles via wl_region_add
+            polygonPoints.Add(new Vector2(rect.Position.X, rect.Position.Y));
+            polygonPoints.Add(new Vector2(rect.End.X, rect.Position.Y));
+            polygonPoints.Add(new Vector2(rect.End.X, rect.End.Y));
+            polygonPoints.Add(new Vector2(rect.Position.X, rect.End.Y));
+        }
+
+        // Sends polygon vector directly into WaylandThread::window_set_mouse_passthrough
+        GetWindow().MousePassthroughPolygon = polygonPoints.ToArray();
+        _inputRectsDirty = false;
     }
 
     private void InitX11InputRegions()
