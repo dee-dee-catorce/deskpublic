@@ -1424,8 +1424,8 @@ shape = SubResource("CapsuleShape2D_8yhbw")
 
 [node name="BUpperArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=187194708]
 position = Vector2(7.051215, -14.663136)
-rotation = 0.44255474
-scale = Vector2(0.9999791, 0.9999791)
+rotation = 0.44255462
+scale = Vector2(0.999979, 0.999979)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1445,9 +1445,9 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8xarg")
 
 [node name="BForeArm" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1094801779]
-position = Vector2(-2.7986412, 6.12136)
-rotation = 0.4860047
-scale = Vector2(0.99997747, 0.99997747)
+position = Vector2(-2.79864, 6.121358)
+rotation = 0.48600462
+scale = Vector2(0.99997765, 0.99997765)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1466,9 +1466,9 @@ position = Vector2(-0.14026499, 7.3280773)
 shape = SubResource("RectangleShape2D_7i5i7")
 
 [node name="BHand" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=2023872310]
-position = Vector2(-12.657443, 26.924728)
-rotation = 0.4860047
-scale = Vector2(0.99997747, 0.99997747)
+position = Vector2(-12.657442, 26.924732)
+rotation = 0.48600462
+scale = Vector2(0.99997765, 0.99997765)
 collision_layer = 8
 mass = 0.001
 angular_damp = 32.544
@@ -1552,7 +1552,7 @@ position = Vector2(-0.2691827, -13.997457)
 shape = SubResource("CapsuleShape2D_4iwlt")
 
 [node name="FMD" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1371767246]
-position = Vector2(0.77128994, 30.31517)
+position = Vector2(0.771291, 30.31517)
 rotation = 0.62269557
 scale = Vector2(0.9999765, 0.9999765)
 collision_layer = 8
@@ -1599,7 +1599,7 @@ scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_iwp8c")
 
 [node name="FCalf" type="RigidBody2D" parent="Ragdoll/GBHB" unique_id=1358723462]
-position = Vector2(6.157674, 49.285713)
+position = Vector2(6.1576753, 49.285713)
 rotation = 0.15146807
 scale = Vector2(0.9999745, 0.9999745)
 collision_layer = 8
@@ -1833,7 +1833,7 @@ remote_path = NodePath("../../../../../UpperTorso")
 
 [node name="Head" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back" unique_id=1606197458]
 position = Vector2(0, -28)
-rotation = -0.023851201
+rotation = -0.0238512
 scale = Vector2(0.9998952, 0.9998952)
 rest = Transform2D(0.99978465, 0.015911827, -0.015911827, 0.99978465, 0, -28)
 auto_calculate_length_and_angle = false
@@ -1892,7 +1892,7 @@ remote_path = NodePath("../../../../../../BUpperArm")
 
 [node name="BFore" type="Bone2D" parent="Ragdoll/GBHB/Bones/Skeleton2D/Hip/Back/BUarm" unique_id=2080187590]
 position = Vector2(1.3589859e-05, 23.000805)
-rotation = 0.043449827
+rotation = 0.043449823
 scale = Vector2(0.9999989, 0.9999989)
 rest = Transform2D(1.0000001, 0, 0, 1.0000001, 3.5762787e-07, 23.00082)
 editor_settings/show_bone_gizmo = false

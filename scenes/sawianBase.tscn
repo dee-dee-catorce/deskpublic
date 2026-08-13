@@ -1980,7 +1980,7 @@ shape = SubResource("CapsuleShape2D_xrsx0")
 
 [node name="BCrus" type="RigidBody2D" parent="RigidBodies" unique_id=823988093]
 position = Vector2(-5.226669, -9.810162)
-rotation = -0.007384989
+rotation = -0.0073850187
 scale = Vector2(0.99999654, 0.99999654)
 collision_layer = 8
 mass = 0.5
@@ -2002,7 +2002,7 @@ shape = SubResource("CapsuleShape2D_s1ecb")
 
 [node name="BFoot" type="RigidBody2D" parent="RigidBodies" unique_id=638804334]
 position = Vector2(-4.8675632, -4.6748333)
-rotation = 0.43346173
+rotation = 0.4334617
 scale = Vector2(0.99999654, 0.99999654)
 collision_layer = 8
 mass = 0.5

@@ -1889,7 +1889,7 @@ shape = SubResource("CircleShape2D_73j8h")
 
 [node name="FThigh" type="RigidBody2D" parent="RigidBodies" unique_id=69657827]
 position = Vector2(0.1732924, -15.684519)
-rotation = 0.19817272
+rotation = 0.19817273
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 8
 mass = 0.001
@@ -1971,7 +1971,7 @@ shape = SubResource("CapsuleShape2D_y6net")
 
 [node name="FDownArm" type="RigidBody2D" parent="RigidBodies" unique_id=757190963]
 position = Vector2(0.63247716, -23.384256)
-rotation = -0.1639936
+rotation = -0.16399361
 scale = Vector2(0.99999934, 0.99999934)
 collision_layer = 8
 mass = 0.001
@@ -1989,8 +1989,8 @@ position = Vector2(-2.3559012e-05, 2)
 shape = SubResource("CapsuleShape2D_gnewh")
 
 [node name="FFHand" type="RigidBody2D" parent="RigidBodies" unique_id=712634110]
-position = Vector2(1.9390894, -15.487778)
-rotation = -0.1639936
+position = Vector2(1.9390895, -15.487778)
+rotation = -0.16399361
 scale = Vector2(0.99999934, 0.99999934)
 collision_layer = 8
 mass = 0.001

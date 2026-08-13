@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/fuck you.png-bbf9b4a014ba13b84d12bac8711353fd
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

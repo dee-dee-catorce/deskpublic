@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bu1nlyxwv0ll8" path="res://Scripts/nimpo/popupMenu.gd" id="1_yekbp"]
 [ext_resource type="Script" uid="uid://blg811jk2cjt4" path="res://Scripts/nimpo/clickArea.gd" id="2_aywyk"]
 
-[node name="tempMenu" type="Control" unique_id=1446517993 node_paths=PackedStringArray("clickthrough")]
+[node name="tempMenu" type="Control" unique_id=1446517993]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yekbp")
-clickthrough = NodePath("ColorRect/ClickArea")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=273800588]
 layout_mode = 0

@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/yellowFlesh.png-99d922739b650d4b8c99aab0400db
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
