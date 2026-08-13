@@ -976,7 +976,7 @@ variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
 base_font = SubResource("FontFile_u4v4t")
 variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
 
-[sub_resource type="Image" id="Image_043xb"]
+[sub_resource type="Image" id="Image_iepjh"]
 data = {
 "data": PackedByteArray("/////////////////////w=="),
 "format": "RGBA8",
@@ -986,7 +986,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_cr3w2"]
-image = SubResource("Image_043xb")
+image = SubResource("Image_iepjh")
 
 [resource]
 LineEdit/constants/caret_width = 1

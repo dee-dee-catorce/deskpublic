@@ -48,7 +48,6 @@ metadata/_custom_type_script = "uid://cbm2skouhq87k"
 
 [node name="properties" type="Node" parent="." unique_id=399788717]
 script = ExtResource("4_i0gxf")
-interest = 7
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1449608065]
 texture_filter = 1

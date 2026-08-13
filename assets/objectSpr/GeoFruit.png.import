@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/GeoFruit.png-591f9bfd28d03963ab715e628d67774b
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

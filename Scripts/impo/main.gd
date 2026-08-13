@@ -15,6 +15,15 @@ var console: Node
 func _ready():
 	DisplayServer.window_set_size(Vector2i(screenWidth, screenHeight) - Vector2i(1, 1))
 	DisplayServer.window_set_position(DisplayServer.screen_get_position())
+	var current_layer = get_window().wayland_layer
+	print("Current wayland_layer: ", current_layer)
+
+	get_window().wayland_layer = Window.WaylandLayer.WAYLAND_LAYER_OVERLAY
+	current_layer = get_window().wayland_layer
+	print("Current wayland_layer: ", current_layer)
+	
+	print("Os: ", OS.get_name(), DisplayServer.get_name())
+	get_window().mouse_passthrough = true;
 	if OS.get_name() == "Linux":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
