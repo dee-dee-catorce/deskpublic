@@ -91,8 +91,11 @@ func _physics_process(delta: float) -> void:
 #make them look at any object with a priority over 4
 
 func headIKf():
-	var dectNode = get_parent().detectRange
-	var inRadius = dectNode.inRadius
+	var behavior = get_parent()
+	var yap = behavior.get_node_or_null("yapHandler")
+	if yap != null and yap.isInteracting() and behavior.attention == null:
+		return
+	var dectNode = behavior.detectRange
 	var mousePriority = dectNode.mousePriority
 	var facing: float = -1.0 if flip else 1.0
 
@@ -101,11 +104,21 @@ func headIKf():
 
 	var mostInterest: float = mousePriority
 
-	for obj in inRadius.keys():
-		var data = inRadius[obj]
-		if data.has("interest") and data["interest"] > mostInterest:
-			mostInterest = data["interest"]
-			targetPos = obj.global_position
+	if behavior.attention != null:
+		mostInterest = 999.0
+		targetPos = behavior.attention.global_position
+	else:
+		var inRadius = dectNode.inRadius
+		for obj in inRadius.keys():
+			var data = inRadius[obj]
+			if data.has("interest") and data["interest"] > mostInterest:
+				mostInterest = data["interest"]
+				targetPos = obj.global_position
+		for expie in dectNode.expiesInRadius.keys():
+			var data = dectNode.expiesInRadius[expie]
+			if data["interest"] > mostInterest:
+				mostInterest = data["interest"]
+				targetPos = expie.global_position
 
 	var dirx: float = sign(targetPos.x - rigidtorso.global_position.x)
 	var mouse_pos: Vector2 = targetPos
@@ -208,8 +221,22 @@ func phystate(_delta: float):
 func detFlip():
 	if currstate == states.ragdoll:
 		return
-
-	var dirx: float = sign(rigid.get_global_mouse_position().x - rigid.global_position.x)
+	var behavior = get_parent()
+	var yap = behavior.get_node_or_null("yapHandler")
+	if yap != null and yap.isInteracting() and behavior.attention == null:
+		return
+	var dirx: float
+	if behavior.attention != null:
+		#keep facing them even while standing still
+		dirx = sign(behavior.attention.global_position.x - rigid.global_position.x)
+		if dirx != 0:
+			skelparent.scale.x = dirx
+			if dirx == 1:
+				flip = false
+			else:
+				flip = true
+		return
+	dirx = sign(rigid.get_global_mouse_position().x - rigid.global_position.x)
 	var _facing: float = -1.0 if flip else 1.0
 
 		
