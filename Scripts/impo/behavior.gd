@@ -217,7 +217,7 @@ func checker():
 				currentEmotion = emotionz.happy
 
 				#ungry
-			if hungerHandler.hungry < 30.0:
+			if hungerHandler.hungry < 30.0 and not $yapHandler.isInteracting():
 				if !isHungry:
 					dialogueSys.pool = dialogueSys.data.hungry
 					dialogueSys.send()
