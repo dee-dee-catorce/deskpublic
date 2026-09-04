@@ -1,14 +1,27 @@
 [gd_scene format=3 uid="uid://c5tuv3hsjyl02"]
 
-[ext_resource type="Theme" uid="uid://bl462l5byyohh" path="res://assets/themes/ConsoleTheme.tres" id="1_yx70c"]
+[ext_resource type="FontFile" uid="uid://bh21v7uuhl7i4" path="res://assets/fonts/Retro.Gaming.Extended.ttf" id="1_3i00r"]
+[ext_resource type="Script" uid="uid://tmx3dt000c1y" path="res://scenes/stat_popup.gd" id="1_4ojl6"]
+
+[sub_resource type="Theme" id="Theme_suvua"]
+default_font = ExtResource("1_3i00r")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfk6r"]
+font = ExtResource("1_3i00r")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ltmj"]
+font = ExtResource("1_3i00r")
+font_size = 14
 
 [node name="Control" type="Control" unique_id=101072280]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -16.0
-offset_top = -104.0
-offset_right = 16.0
-offset_bottom = -48.0
+offset_right = 200.0
+offset_bottom = 250.0
+offset_transform_enabled = true
+script = ExtResource("1_4ojl6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=842929755]
 layout_mode = 1
@@ -21,20 +34,124 @@ color = Color(0, 0, 0, 0.78039217)
 
 [node name="ItemList" type="VBoxContainer" parent="." unique_id=1894071501]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 213.0
 grow_horizontal = 2
-grow_vertical = 2
 alignment = 1
 
-[node name="stat" type="RichTextLabel" parent="ItemList" unique_id=600548670]
-visible = false
+[node name="StatsNameLabel" type="RichTextLabel" parent="ItemList" unique_id=600548670]
 layout_mode = 2
-theme = ExtResource("1_yx70c")
-theme_override_font_sizes/normal_font_size = 4
-text = "Nickname"
+theme = SubResource("Theme_suvua")
+theme_override_font_sizes/normal_font_size = 24
+text = "#1"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="NameStatsSeparator" type="HSeparator" parent="ItemList" unique_id=482405702]
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="ItemList" unique_id=1443254777]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="MoodContainer" type="VBoxContainer" parent="ItemList/StatsContainer" unique_id=80581031]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ItemList/StatsContainer/MoodContainer" unique_id=1264425031]
+layout_mode = 2
+text = "Mood"
+label_settings = SubResource("LabelSettings_wfk6r")
+
+[node name="ValueDescription" type="HBoxContainer" parent="ItemList/StatsContainer/MoodContainer" unique_id=527285414]
+layout_mode = 2
+
+[node name="DepressedLabel" type="Label" parent="ItemList/StatsContainer/MoodContainer/ValueDescription" unique_id=427862684]
+layout_mode = 2
+text = "Depressed"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="Expander" type="HBoxContainer" parent="ItemList/StatsContainer/MoodContainer/ValueDescription" unique_id=1116138604]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HappyLabel" type="Label" parent="ItemList/StatsContainer/MoodContainer/ValueDescription" unique_id=1532151197]
+layout_mode = 2
+text = "Happy"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="MoodProgressBar" type="ProgressBar" parent="ItemList/StatsContainer/MoodContainer" unique_id=88912290]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+min_value = -100.0
+value = 50.0
+show_percentage = false
+
+[node name="HungerContainer" type="VBoxContainer" parent="ItemList/StatsContainer" unique_id=1940215395]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HungerLabel" type="Label" parent="ItemList/StatsContainer/HungerContainer" unique_id=1422891053]
+layout_mode = 2
+text = "Hunger"
+label_settings = SubResource("LabelSettings_wfk6r")
+
+[node name="ValueDescription" type="HBoxContainer" parent="ItemList/StatsContainer/HungerContainer" unique_id=749918689]
+layout_mode = 2
+
+[node name="HungryLabel" type="Label" parent="ItemList/StatsContainer/HungerContainer/ValueDescription" unique_id=1498765003]
+layout_mode = 2
+text = "Hungry"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="Expander" type="HBoxContainer" parent="ItemList/StatsContainer/HungerContainer/ValueDescription" unique_id=130076809]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullLabel" type="Label" parent="ItemList/StatsContainer/HungerContainer/ValueDescription" unique_id=138529759]
+layout_mode = 2
+text = "Full"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="HungerProgressBar" type="ProgressBar" parent="ItemList/StatsContainer/HungerContainer" unique_id=912150571]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+value = 50.0
+show_percentage = false
+
+[node name="SleepContainer" type="VBoxContainer" parent="ItemList/StatsContainer" unique_id=560408284]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="RestLabel" type="Label" parent="ItemList/StatsContainer/SleepContainer" unique_id=1310333363]
+layout_mode = 2
+text = "Rest"
+label_settings = SubResource("LabelSettings_wfk6r")
+
+[node name="ValueDescription" type="HBoxContainer" parent="ItemList/StatsContainer/SleepContainer" unique_id=1055740085]
+layout_mode = 2
+
+[node name="TiredLabel" type="Label" parent="ItemList/StatsContainer/SleepContainer/ValueDescription" unique_id=1601755891]
+layout_mode = 2
+text = "Tired"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="Expander" type="HBoxContainer" parent="ItemList/StatsContainer/SleepContainer/ValueDescription" unique_id=1324567972]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestedLabel" type="Label" parent="ItemList/StatsContainer/SleepContainer/ValueDescription" unique_id=1560921387]
+layout_mode = 2
+text = "Rested"
+label_settings = SubResource("LabelSettings_0ltmj")
+
+[node name="SleepProgressBar" type="ProgressBar" parent="ItemList/StatsContainer/SleepContainer" unique_id=714344306]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+value = 50.0
+show_percentage = false

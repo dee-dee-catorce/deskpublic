@@ -456,7 +456,7 @@ layout_mode = 2
 label = "Dialogue font size"
 key = "expieDialogueSize"
 sliderMinimum = 3.0
-sliderMaximum = 12.0
+sliderMaximum = 28.0
 sliderStep = 1.0
 valueType = "int"
 

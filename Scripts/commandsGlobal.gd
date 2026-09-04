@@ -52,7 +52,7 @@ func spawnExpie(petId: String = ""):
 	instance.get_node("behavior").petId = petId
 
 	var wrapper = Node2D.new()
-	wrapper.scale = Vector2(4.0, 4.0)
+	wrapper.scale = Vector2(1.0, 1.0)
 
 	get_tree().current_scene.add_child(wrapper)
 	wrapper.owner = get_tree().current_scene
