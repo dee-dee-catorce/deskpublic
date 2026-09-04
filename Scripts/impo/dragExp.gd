@@ -247,6 +247,9 @@ func _on_body_part_input(_viewport: Node, event: InputEvent, _shape_idx: int, bo
 			_startDrag(body, mouse_pos)
 		#pet limb
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			var yap = behaviornode.get_node_or_null("yapHandler")
+			if yap != null and yap.isInteracting():
+				return
 			behaviornode.petLimb(body)
 
 

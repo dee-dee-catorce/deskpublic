@@ -32,6 +32,9 @@
 [ext_resource type="Script" uid="uid://dnk6vcggbqmhu" path="res://Scripts/impo/det_radius.gd" id="30_873iu"]
 [ext_resource type="Script" uid="uid://bmc5ssn6i83yj" path="res://Scripts/impo/stat_watcher.gd" id="31_873iu"]
 [ext_resource type="PackedScene" uid="uid://c5tuv3hsjyl02" path="res://scenes/statPopup.tscn" id="32_oiscl"]
+[ext_resource type="Texture2D" path="res://icons/SpeechBubble0.png" id="33_8k2ma"]
+[ext_resource type="Script" uid="uid://yi34xjk1bc2h" path="res://Scripts/impo/yap_handler.gd" id="34_9p4qw"]
+[ext_resource type="Script" uid="uid://bsjtpx1xkqipu" path="res://Scripts/impo/talk_icon.gd" id="35_7u1xz"]
 
 [sub_resource type="Animation" id="Animation_d7061"]
 length = 0.001
@@ -2423,6 +2426,7 @@ anim_offset_max = 0.2042
 
 [node name="Dect" type="Area2D" parent="RigidBodies/Head" unique_id=1190346300]
 visible = false
+collision_mask = 9
 position = Vector2(-0.73018646, 2.4774628)
 script = ExtResource("14_s86i6")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
@@ -2866,6 +2870,13 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="TalkIcon" type="Sprite2D" parent="textParent" unique_id=1523084764]
+visible = false
+scale = Vector2(0.5, 0.5)
+position = Vector2(0, -32)
+texture = ExtResource("33_8k2ma")
+script = ExtResource("35_7u1xz")
+
 [node name="Control" parent="textParent" unique_id=101072280 instance=ExtResource("32_oiscl")]
 visible = false
 offset_left = -15.837868
@@ -2885,6 +2896,9 @@ horizontal_alignment = 1
 [node name="behavior" type="Node" parent="." unique_id=114253932 node_paths=PackedStringArray("sleepParticle")]
 script = ExtResource("18_8de8m")
 sleepParticle = NodePath("../RigidBodies/Head/Sleep")
+
+[node name="yapHandler" type="Node" parent="behavior" unique_id=1864392053]
+script = ExtResource("34_9p4qw")
 
 [node name="skinmapper" type="Node" parent="behavior" unique_id=1582520777]
 script = ExtResource("17_67p0r")

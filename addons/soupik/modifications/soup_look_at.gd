@@ -53,7 +53,7 @@ func handle_look_at(delta) -> void:
 	if target_node:
 		target_vector = target_node.global_position - bone_node.global_position
 	var target_rotation = target_vector.angle() \
-			- (bone_node.get_bone_angle() - angle_offset) * scale_orient
+			- (bone_node.get_bone_angle() - angle_offset) # no mirroring calc here (this is a global angle, and flipping it turned the head away from the target)
 
 	if use_angle_constraints:
 		target_rotation = clamp_target_rotation(target_rotation)

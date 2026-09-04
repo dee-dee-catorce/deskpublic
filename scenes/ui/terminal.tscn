@@ -300,6 +300,12 @@ layout_mode = 2
 label = "Enable hunger"
 key = "hungerEnabled"
 
+[node name="Yap" parent="MarginContainer/ViewportPanel/SettingsView/MarginContainer/VBoxContainer/SettingsPanel/MarginContainer/BehaviorPanel/ScrollContainer/VBoxContainer" unique_id=1338715029 instance=ExtResource("5_hils5")]
+layout_mode = 2
+label = "Enable yapping"
+key = "yapEnabled"
+defaultValue = true
+
 [node name="Sleepy" parent="MarginContainer/ViewportPanel/SettingsView/MarginContainer/VBoxContainer/SettingsPanel/MarginContainer/BehaviorPanel/ScrollContainer/VBoxContainer" unique_id=62469743 instance=ExtResource("5_hils5")]
 layout_mode = 2
 label = "Enable sleep cycles"

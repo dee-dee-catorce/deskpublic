@@ -38,6 +38,9 @@ func hungercheck():
 
 func _onItemEnter(body: Node2D) -> void:
 	#consolidate this later
+	var yapNode = get_parent().get_node_or_null("yapHandler")
+	if yapNode != null and yapNode.isInteracting():
+		return
 	if foodDb == true:
 		return
 	if get_parent().isSleeping or get_parent().shocked:

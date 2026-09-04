@@ -147,6 +147,46 @@
 			"[shake]NO!",
 			"[shake]Don't touch me!",
 			"[shake]Get away!"
+		],
+		"yapCall": [
+			"[wave]Hey!",
+			"[wave]Hello?",
+			"Um... hey!",
+			"Hey! Over here!"
+		],
+		"yapResponse": [
+			"[wave]Oh hey there!",
+			"[wave]Oh, you talking to me?",
+			"Why?",
+			"Hm? What's up?",
+			"Huh? Did you call me?",
+			"...Did we met before?"
+		],
+		"yapEnd": [
+			"[wave]See you later!",
+			"[wave]Catch you later!",
+			"[wave]It was nice talking to you!",
+			"Okay, talk to you soon!",
+			"Alright, I'm heading off..."
+		],
+		"yapProgress": [
+			"Well...",
+			"Hmm...",
+			"Aw...",
+			"No...",
+			"...Oh?",
+			"...Ok",
+			"...Mmm",
+			"...Wow",
+			"Did you know that?",
+			"Didn't know that"
+		],
+		"yapInterrupt": [
+			"...? Where did you go?",
+			"Hey, wait!",
+			"Ugh... they just left.",
+			"Hello? ...",
+			"Guess I'm on my own now..."
 		]
 	}
 }

@@ -163,3 +163,6 @@ func setDia(stra: String, speed: float, cooldown: float = 0.0, ignoreCooldown: b
 
 func is_dialogue_playing() -> bool:
 	return isTyping
+
+func is_dialogue_visible() -> bool:
+	return isTyping or richtextlabel.visible_characters > 0

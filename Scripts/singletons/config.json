@@ -17,6 +17,7 @@
 	"deathEnabled": false,
 	"pixel": false,
 	"lobotomize": true,
+	"yapEnabled": true,
 	"expiePersistence": false,
 	"mute": false,
 	"mutePassive": false,
