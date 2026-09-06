@@ -119,8 +119,9 @@ func addPet(skin: String = "Default") -> String:
 
 	data["saw"][newId] = data["sawTemplate"].duplicate(true)
 	data["saw"][newId]["skin"] = skin
-
-
+	if gbData.settings.has("spawnSize"):
+		data["saw"][newId]["spawnSize"]=gbData.settings["spawnSize"]
+	
 	savetodisk(savePath, data)
 	return newId
 

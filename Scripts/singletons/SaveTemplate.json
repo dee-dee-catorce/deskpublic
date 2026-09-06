@@ -12,7 +12,8 @@
 		"firstime": 0.0,
 		"interactions": false,
 		"dead": false,
-		"dangerVal": {}
+		"dangerVal": {},
+		"expieSpawnSize":1.0
 	},
 	"nextPetId": 1.0,
 	"firstLaunch": true,

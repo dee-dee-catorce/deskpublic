@@ -327,6 +327,15 @@ label = "Maximum time between passive dialouge"
 key = "maxDialogueTime"
 defaultValue = "60.0"
 
+[node name="SpawnSize" parent="MarginContainer/ViewportPanel/SettingsView/MarginContainer/VBoxContainer/SettingsPanel/MarginContainer/BehaviorPanel/ScrollContainer/VBoxContainer" unique_id=998975074 instance=ExtResource("9_r80vr")]
+layout_mode = 2
+label = "New sawian spawn size"
+key = "spawnSize"
+defaultValue = 1.0
+sliderMinimum = 0.5
+sliderMaximum = 3.0
+sliderStep = 0.1
+
 [node name="AudioPanel" type="Panel" parent="MarginContainer/ViewportPanel/SettingsView/MarginContainer/VBoxContainer/SettingsPanel/MarginContainer" unique_id=68479689]
 visible = false
 layout_mode = 2
