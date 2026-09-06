@@ -133,7 +133,8 @@ func _on_spawn_button_press() -> void:
 		"res://assets/Body/" if selectedSkin == null
 		else selectedSkin.path
 	)
-	spawnExpie()
+	CommandsGlobal.spawnExpie() #works fine, why need duplicate?
+	#spawnExpie()
 
 func _on_skin_folder_button_press() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://skin"))
